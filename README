@@ -1,0 +1,12 @@
+This is the mobile application for DrupalCon Chicago.  It was built using the Appcelerator Titanium mobile framework.
+
+The development team at Palantir.net consisted of:
+
+Larry Garfield (Lead)
+Pat Teglia (Developer)
+Jen Simmons (Designer)
+
+It ships with a default copy of the session schedule for DrupalCon Chicago, March 7-10, 2011.  In-app updates are possible for as long as the web site remains dynamic.
+
+All source code in the application is released under the terms of the GNU General Public License, version 3 or, at your option, any later version.  See the included 
+LICENSE.txt file.
