@@ -26,7 +26,7 @@ function getAvatars(picture,uid) {
   var adir = Ti.Filesystem.resourcesDirectory;
   var af = Ti.Filesystem.getFile(adir,'images/avatars/picture-'+uid+'.jpg');
   // If it exists in either place or if it is the default avatar, don't bother
-  if(f.exists() || af.exists() || picture == 'http://chicago2011.drupal.org/sites/default/files/imagecache/mobile_presenter/sites/all/default-profile-pic.png') {
+  if(f.exists() || af.exists() || picture == 'http://london2011.drupal.org/sites/default/files/imagecache/mobile_presenter/sites/all/default-profile-pic.png') {
   }
   else {
     var xhr = Titanium.Network.createHTTPClient();

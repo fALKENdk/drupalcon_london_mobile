@@ -125,7 +125,7 @@ Drupal.entity.sites.main.types.node.schema = {
    */
   defaultFetcher: function(bundle, store, func) {
     // Set the base URL.
-    var url = 'http://chicago2011.drupal.org/mobile/fetch/' + bundle;
+    var url = 'http://london2011.drupal.org/mobile/fetch/' + bundle;
 
     //Only get those nodes that have been updated since we last requested an update.
     // This is bound to the view we're pulling from and configured there.
@@ -189,7 +189,7 @@ Drupal.entity.sites.main.types.user.schema = {
    *   A callback functino that will be called when the fetch is complete.
    */
   defaultFetcher: function(bundle, store, func) {
-    this.prototype.defaultFetcher.apply(this, [bundle, store, func, 'http://chicago2011.drupal.org/mobile/fetch/presenters']);
+    this.prototype.defaultFetcher.apply(this, [bundle, store, func, 'http://london2011.drupal.org/mobile/fetch/presenters']);
   }
 
 };
