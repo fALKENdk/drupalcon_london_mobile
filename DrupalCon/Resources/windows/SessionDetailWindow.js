@@ -235,7 +235,7 @@
         var currentTab = (Ti.Platform.name == 'android') ? currentTab = Titanium.UI.currentTab : sessionDetailWindow.tabGroup.activeTab;
         currentTab.open(DrupalCon.ui.createFeedbackWindow({
           title: settings.title,
-          address: 'http://chicago2011.drupal.org/node/add/eval/' + settings.nid,
+          address: 'http://london2011.drupal.org/node/add/eval/' + settings.nid,
           //address: 'http://google.com',
           tabGroup: currentTab
         }), {animated:true});
