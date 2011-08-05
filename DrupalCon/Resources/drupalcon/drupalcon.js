@@ -56,7 +56,7 @@ var DrupalCon = {
 
     var sessionRow = Ti.UI.createTableViewRow({
       hasChild:true,
-      selectedColor: '#669999',
+      selectedBackgroundColor: '#f3f3f3',
       backgroundColor: '#fff',
       color: '#000',
       start_date: session.start_date,
@@ -65,46 +65,51 @@ var DrupalCon = {
       sessionTitle: sessionTitle,
       itemType: session.type,
       height: 'auto',
-      layout: 'vertical'
+      layout: 'vertical',
+      focusable : false
     });
 
-    var leftSpace = (Ti.Platform.name == 'android') ? 30 : 40;
+    var leftSpace = (Ti.Platform.name == 'android') ? 8 : 16;
     var titleColor = '';
     switch (session.track) {
       case "":
         leftSpace = 10;
         titleColor = '#d32101';
         break;
-      case "Design and UX":
-        sessionRow.leftImage = 'images/uxdesign.png';
-        titleColor = '#dd3793';
+      case "Site Building and Environment Set-up":
+        //sessionRow.leftImage = 'images/uxdesign.png';
+        titleColor = '#004a8b';
         break;
-      case "Coder":
-        sessionRow.leftImage = 'images/coder.png';
-        titleColor = '#e76828';
+      case "Design, UX and Theming":
+        //sessionRow.leftImage = 'images/coder.png';
+        titleColor = '#ff1600';
         break;
-      case "Business and Strategy":
-        sessionRow.leftImage = 'images/business.png';
-        titleColor = '#85a951';
+      case "Day Stage":
+        //sessionRow.leftImage = 'images/business.png';
+        titleColor = '#a1dec4';
         break;
-      case "Implementation and Config":
-        sessionRow.leftImage = 'images/config.png';
-        titleColor = '#f0b539';
+      case "Business and Best Practices":
+       // sessionRow.leftImage = 'images/config.png';
+        titleColor = '#f3d23c';
         break;
-      case "Drupal Community":
-        sessionRow.leftImage = 'images/community.png';
-        titleColor = '#7fbfea';
+      case "Ecosystem":
+        //sessionRow.leftImage = 'images/community.png';
+        titleColor = '#ffa22a';
+        break;
+      case "Business Day":
+        //sessionRow.leftImage = 'images/coreconv.png';
+        titleColor = '#aaaaaa';
+        break;
+      case "Code &amp; Coders":
+        //sessionRow.leftImage = 'images/theming.png';
+        titleColor = '#0098cd';
         break;
       case "Core Conversations":
-        sessionRow.leftImage = 'images/coreconv.png';
-        titleColor = '#3176bd';
-        break;
-      case "Theming":
-        sessionRow.leftImage = 'images/theming.png';
-        titleColor = '#e5393e';
+        //sessionRow.leftImage = 'images/theming.png';
+        titleColor = '#a4632b';
         break;
       default:
-        leftSpace = 10;
+        //leftSpace = 10;
         titleColor = '#d32101';
         break;
     }
@@ -140,10 +145,10 @@ var DrupalCon = {
     // Some things, like keynote, have multiple rooms
     var roomLabel = Ti.UI.createLabel({
       text: session.room.map(cleanSpecialChars).join(', '),
-      font: {fontSize:14, fontWeight:'normal'},
-      color: '#333',
+      font: {fontSize:13, fontWeight:'normal', fontStyle:'italic'},
+      color: '#666',
       left: leftSpace,
-      top: 2,
+      top: 1,
       bottom: 10,
       right: 10,
       height: 'auto'
@@ -161,10 +166,9 @@ var DrupalCon = {
 
     var sessionRow = Ti.UI.createTableViewRow({
       hasChild:true,
-      selectedColor: '#669999',
-      backgroundColor: '#fefefe',
+      selectedBackgroundColor: '#f3f3f3',
+      backgroundColor: '#fff',
       color: '#000',
-      leftImage:'images/coreconv.png',
       start_date: session.start_date,
       end_date: session.end_date,
       nid: session.nid,
@@ -174,8 +178,8 @@ var DrupalCon = {
       layout: 'vertical'
     });
 
-    var leftSpace = (Ti.Platform.name == 'android') ? 30 : 40;
-    var titleColor = '#3176bd';
+    var leftSpace = (Ti.Platform.name == 'android') ? 8 : 16;
+    var titleColor = '#a4632b';
 
     // If there is a new session time, insert a header in the table.
     if (lastTime == '' || session.start_date != lastTime) {
@@ -185,7 +189,7 @@ var DrupalCon = {
 
     var titleLabel = Ti.UI.createLabel({
       text: sessionTitle,
-      font: {fontSize:16, fontWeight:'normal'},
+      font: {fontSize:16, fontWeight:'bold'},
       color: titleColor,
       left: leftSpace,
       top: 10,
@@ -209,10 +213,10 @@ var DrupalCon = {
     // Some things, like keynote, have multiple rooms
     var roomLabel = Ti.UI.createLabel({
       text: session.room.map(cleanSpecialChars).join(', '),
-      font: {fontSize:14, fontWeight:'normal'},
-      color: '#333',
+      font: {fontSize:13, fontWeight:'normal', fontStyle:'italic'},
+      color: '#666',
       left: leftSpace,
-      top: 2,
+      top: 1,
       bottom: 10,
       right: 10,
       height: 'auto'
@@ -227,21 +231,22 @@ var DrupalCon = {
 
   DrupalCon.renderers.day_stage = function(session) {
     var sessionTitle = cleanSpecialChars(session.title);
-
+    
     var sessionRow = Ti.UI.createTableViewRow({
       hasChild:true,
-      selectedColor: '#669999',
-      backgroundColor: '#fefefe',
+      selectedBackgroundColor: '#f3f3f3',
+      backgroundColor: '#fff',
       color: '#000',
-      leftImage: 'images/daystage.png',
       start_date: session.start_date,
       end_date: session.end_date,
       nid: session.nid,
       sessionTitle: sessionTitle,
       itemType: session.type,
       height: 'auto',
-      layout: 'vertical'
+      layout: 'vertical',
+      focusable : false
     });
+
     var titleColor = '#ab7d66';
 
     if (session.start_date.substr(8,2) == '10') {
@@ -285,10 +290,10 @@ var DrupalCon = {
     // Some things, like keynote, have multiple rooms
     var roomLabel = Ti.UI.createLabel({
       text: session.room.map(cleanSpecialChars).join(', '),
-      font: {fontSize:14, fontWeight:'normal'},
-      color: '#333',
+      font: {fontSize:13, fontWeight:'normal', fontStyle:'italic'},
+      color: '#666',
       left: leftSpace,
-      top: 2,
+      top: 1,
       bottom: 10,
       right: 10,
       height: 'auto'
@@ -303,12 +308,12 @@ var DrupalCon = {
 
   DrupalCon.renderers.schedule_item = function(session) {
     var sessionTitle = cleanSpecialChars(session.title);
-
+		var specificRoom = (session.room.map(cleanSpecialChars).join(', ') != '') ? true : false;
+		
     var sessionRow = Ti.UI.createTableViewRow({
-      hasChild: true,
-      hasDetail: true,
-      selectedColor: '#fff',
-      backgroundColor: '#fefefe',
+      hasChild:false,
+      selectedBackgroundColor: '#f3f3f3',
+      backgroundColor: '#fff',
       color: '#000',
       start_date: session.start_date,
       end_date: session.end_date,
@@ -316,10 +321,11 @@ var DrupalCon = {
       sessionTitle: sessionTitle,
       itemType: session.type,
       height: 'auto',
-      layout: 'vertical'
+      layout: 'vertical',
+      focusable : false
     });
 
-    var leftSpace = (Ti.Platform.name == 'android') ? 30 : 40;
+    var leftSpace = (Ti.Platform.name == 'android') ? 8 : 16;
     var titleColor = '#333';
 
     // If there is a new session time, insert a header in the table.
@@ -338,9 +344,26 @@ var DrupalCon = {
       bottom: 10,
       height: 'auto'
     });
+    
+    if(specificRoom){
+    	sessionRow.hasChild = true;
+    	
+	    // Some things, like keynote, have multiple rooms
+	    var roomLabel = Ti.UI.createLabel({
+	      text: session.room.map(cleanSpecialChars).join(', '),
+	      font: {fontSize:13, fontWeight:'normal', fontStyle:'italic'},
+	      color: '#666',
+	      left: leftSpace,
+	      top: 1,
+	      bottom: 10,
+	      right: 10,
+	      height: 'auto'
+	    });
+    }
 
     sessionRow.add(titleLabel);
-
+		(specificRoom) ? sessionRow.add(roomLabel) : '';
+		
     return sessionRow;
   };
 
