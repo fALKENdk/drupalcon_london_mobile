@@ -45,20 +45,20 @@
     });
     var headerRow = Ti.UI.createTableViewRow({
       height: 'auto',
-      backgroundColor: blueBg,
+      backgroundColor: '#e4e0dd',
+      selectedBackgroundColor: '#e4e0dd',
       left: 0,
       top: -5,
       bottom: 10,
       layout: 'vertical',
       className: 'headerRow',
-      backgroundImage:'images/sessionbckgd@2x.png',
-      backgroundPosition:'bottom left'
     });
 
     var bodyRow = Ti.UI.createTableViewRow({
       hasChild: false,
       height: 'auto',
-      backgroundColor: blueBg,
+      backgroundColor: '#FFF',
+      selectedBackgroundColor: '#fff',
       left: 0,
       top: -5,
       bottom: 10,
@@ -150,7 +150,7 @@
       bodyRow.add(body);
     }
 
-    if (sessionData.core_problem) {
+    if (sessionData.Problem) {
       var problemTitle = Ti.UI.createLabel({
         text:"Problem:",
         backgroundColor:'#fff',
@@ -166,7 +166,7 @@
       bodyRow.add(problemTitle);
 
       var coreProblem = Ti.UI.createLabel({
-        text: cleanSpecialChars(sessionData.core_problem.replace('\n','\n\n')),
+        text: cleanSpecialChars(sessionData.Problem.replace('\n','\n\n')),
         backgroundColor:'#fff',
         textAlign:'left',
         color:'#000',
@@ -212,20 +212,20 @@
 
     if (sessionData.type === 'session') {
       var feedbackTitle = Ti.UI.createLabel({
-        text:"Rate this session",
+        text:'Rate this session',
         backgroundColor:'#3782a8',
         textAlign:'left',
-        font:{fontSize:18, fontWeight:'bold'},
+        font:{fontSize:14, fontWeight:'bold'},
         color:'#fff',
         left: commonPadding,
         right: commonPadding,
-        height: 50
+        height: 30
       });
 
       var feedbackRow = Ti.UI.createTableViewRow({
         hasChild: true,
         layout:'vertical',
-        height: 50,
+        height: 30,
         className: 'feedbackRow',
         backgroundColor:'#3782A9'
       });
@@ -290,7 +290,6 @@
       audienceRow.add(textViewBottom);
       tvData.push(audienceRow);
     }
-
 
     if (sessionData.instructors && sessionData.instructors.length) {
       // Get the presenter information.
