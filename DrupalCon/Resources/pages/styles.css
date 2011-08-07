@@ -176,49 +176,51 @@ body.bofs {
 
 /* Legend page 
 -------------------------------- */
+body.legend {
+	margin-top: 30px;
+}
 .legend div {
   padding-top: 1px;
 }
 .legend h2 {
   padding: 15px 10px 0px;
-  margin: -12px 0 -5px 28px;
+  margin: -15px 0 -5px 28px;
   font-size: 16px;
 }
 .legend img {
   height: 21px;
   width: 21px;
   float: left;
-  padding-left: 5px;
 }
 .legend p {
   padding: 0 5px;
 }
 .coreconv {
-  color: #3176bd; 
+  color: #a4632b; 
 }
 .daystage { 
-  color: #ab7d66; 
+  color: #a1dec4; 
 }
 .dmb { 
-  color: #269477; 
+  color: #aaaaaa; 
 }
 .coder { 
-  color: #e76828; 
+  color: #0098cd; 
 }
 .config { 
-  color: #f0b539; 
+  color: #004a8b; 
 }
 .community { 
-  color: #7fbfea; 
+  color: #ffa22a; 
 }
 .theming { 
   color: #e5393e; 
 }
 .business { 
-  color: #85a951; 
+  color: #f3d23c; 
 }
 .uxdesign { 
-  color: #dd3793; 
+  color: #ff1600; 
 }
 
 /* Exhbitors page
@@ -237,3 +239,8 @@ body.exhibitors {
 .exhibitors span { 
   float: right; 
 }
+
+/* Shadows
+-------------------------------- */
+.boxshadow { box-shadow: 1px 1px 1px #666; -webkit-box-shadow: 1px 1px 1px #666; }
+.shadow { text-shadow: 1px 1px 1px #666; }
