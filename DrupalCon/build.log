@@ -6,29 +6,10 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.005071 seconds on emulator to get ready
+[DEBUG] waited 0.007171 seconds on emulator to get ready
 [DEBUG] net.palantir.drupalcon installed? True
 [INFO] Fastdev server running, deploying in Fastdev mode
 [INFO] Copying project resources..
-[TRACE] COPYING MODIFIED FILE: /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/Resources/drupalcon/entity.js => /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/build/android/bin/assets/Resources/drupalcon/entity.js
-[TRACE] COPYING MODIFIED FILE: /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/Resources/drupalcon/drupalcon.js => /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/build/android/bin/assets/Resources/drupalcon/drupalcon.js
-[TRACE] COPYING CREATED FILE: /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/Resources/images/maps/level3@2x.png => /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/build/android/bin/assets/Resources/images/maps/level3@2x.png
-[TRACE] COPYING CREATED FILE: /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/Resources/images/maps/level3.png => /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/build/android/bin/assets/Resources/images/maps/level3.png
-[TRACE] COPYING CREATED FILE: /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/Resources/images/maps/level4@2x.png => /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/build/android/bin/assets/Resources/images/maps/level4@2x.png
-[TRACE] COPYING CREATED FILE: /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/Resources/images/maps/level2@2x.png => /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/build/android/bin/assets/Resources/images/maps/level2@2x.png
-[TRACE] COPYING CREATED FILE: /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/Resources/images/maps/level4.png => /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/build/android/bin/assets/Resources/images/maps/level4.png
-[TRACE] COPYING CREATED FILE: /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/Resources/images/maps/level1@2x.png => /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/build/android/bin/assets/Resources/images/maps/level1@2x.png
-[TRACE] COPYING CREATED FILE: /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/Resources/images/maps/level1.png => /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/build/android/bin/assets/Resources/images/maps/level1.png
-[TRACE] COPYING CREATED FILE: /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/Resources/images/maps/level2.png => /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/build/android/bin/assets/Resources/images/maps/level2.png
-[TRACE] COPYING MODIFIED FILE: /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/Resources/main.sql => /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/build/android/bin/assets/Resources/main.sql
-[TRACE] COPYING MODIFIED FILE: /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/Resources/drupal/entity.js => /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/build/android/bin/assets/Resources/drupal/entity.js
-[TRACE] COPYING MODIFIED FILE: /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/Resources/windows/SessionDetailWindow.js => /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/build/android/bin/assets/Resources/windows/SessionDetailWindow.js
-[TRACE] COPYING MODIFIED FILE: /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/Resources/windows/MapDetailWindow.js => /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/build/android/bin/assets/Resources/windows/MapDetailWindow.js
-[TRACE] COPYING MODIFIED FILE: /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/Resources/windows/DayWindow.js => /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/build/android/bin/assets/Resources/windows/DayWindow.js
-[TRACE] COPYING MODIFIED FILE: /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/Resources/windows/MapWindow.js => /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/build/android/bin/assets/Resources/windows/MapWindow.js
-[TRACE] COPYING MODIFIED FILE: /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/Resources/pages/styles.css => /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/build/android/bin/assets/Resources/pages/styles.css
-[TRACE] COPYING CREATED FILE: /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/Resources/pages/tower.png => /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/build/android/bin/assets/Resources/pages/tower.png
-[TRACE] COPYING MODIFIED FILE: /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/Resources/pages/about.html => /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/build/android/bin/assets/Resources/pages/about.html
 [INFO] Tiapp.xml unchanged, skipping class generation
 [DEBUG] Processing Android resource drawables
 [DEBUG] found special platform files dir = /home/jeff/workspace/drupalcon_london_mobile/DrupalCon/platform/android
@@ -47,5 +28,5 @@ Logfile initialized
 [INFO] Re-launching application ... DrupalCon
 [INFO] Launching application ... DrupalCon
 [TRACE] Launch output: Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=net.palantir.drupalcon/.DrupalconActivity }
-Warning: Activity not started, its current task has been brought to the front
 
+[INFO] Relaunched DrupalCon ... Application should be running.
