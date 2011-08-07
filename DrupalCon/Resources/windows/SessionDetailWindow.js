@@ -243,6 +243,58 @@
 
       tvData.push(feedbackRow);
     }
+    
+    if (sessionData.type === 'session' || sessionData.type === 'coreconversation') {
+      var scheduleText = (DrupalCon.util.myScheduleIsAdded(sessionData.nid)) ? 'Remove from my schedule' : 'Add to my schedule';
+    
+      var myScheduleTitle = Ti.UI.createLabel({
+    		text: scheduleText,
+    		backgroundColor:'#3782a8',
+        textAlign:'left',
+        font:{fontSize:14, fontWeight:'bold'},
+        color:'#fff',
+        left: commonPadding,
+        right: commonPadding,
+        height: 30
+    	});
+    	
+    	var myScheduleRow = Ti.UI.createTableViewRow({
+    		hasChild: true,
+    		layout: 'vertical',
+    		height: 30,
+    		className: 'myScheduleRow',
+    		backgroundColor:'#3782a8'
+    	});
+    	
+    	myScheduleRow.addEventListener('click', function(e) {
+    		if(DrupalCon.util.myScheduleIsAdded(sessionData.nid)){
+    			myScheduleTitle.text = 'Add to my schedule';
+    			Drupal.db.getConnection('main').query('DELETE FROM schedule WHERE nid = ' + sessionData.nid);
+    		}else{
+    			if(DrupalCon.util.myScheduleIsBooked(sessionData.start_date)){
+    				var alertDialog = Titanium.UI.createAlertDialog({
+						    title: 'You have already added a session to that timeslot',
+						    message: DrupalCon.util.myScheduleSessionName(sessionData.start_date),
+						    buttonNames: ['Replace','Cancel']
+						});
+						alertDialog.addEventListener('click', function(e) {
+							if(e.index == 0){
+								Drupal.db.getConnection('main').query('DELETE FROM schedule WHERE start_date LIKE "'+sessionData.start_date+'%"');
+								myScheduleTitle.text = 'Remove from my schedule';
+    						Drupal.db.getConnection('main').query('INSERT INTO schedule (nid, start_date, end_date) VALUES ("'+sessionData.nid+'", "'+sessionData.start_date+'", "'+sessionData.end_date+'")');
+							}
+						});
+						alertDialog.show();
+    			}else{
+						myScheduleTitle.text = 'Remove from my schedule';
+    				Drupal.db.getConnection('main').query('INSERT INTO schedule (nid, start_date, end_date) VALUES ("'+sessionData.nid+'", "'+sessionData.start_date+'", "'+sessionData.end_date+'")');
+					}
+    		}
+    	});
+    	
+    	myScheduleRow.add(myScheduleTitle);
+    	tvData.push(myScheduleRow);
+    }
 
     tvData.push(bodyRow);
 

@@ -30,6 +30,7 @@
     data.push({title:'Thursday 25th August', hasChild:true, color:'#000', backgroundColor:'#fff', backgroundSelectedColor:'#0779BE', start_date:'2011-08-25T00:00:00', end_date:'2011-08-26T00:00:00', scheduleListing: true});
     data.push({title:'Friday 26th August', hasChild:true, color:'#000', backgroundColor:'#fff', backgroundSelectedColor:'#0779BE', scheduleListing: false, url: 'pages/2011-08-26.html'});
     data.push({title:'Birds of a Feather', hasChild:true, color:'#000', backgroundColor:'#fff', backgroundSelectedColor:'#0779BE', scheduleListing: false, url: 'pages/bofs.html'});
+    data.push({title:'My Schedule', hasChild:true, color:'#000', backgroundColor:'#fff', selectedBackgroundColor: '#f3f3f3', scheduleListing: true, mySchedule: true});
 
     var dayWindow = Titanium.UI.createWindow({
       id: 'win1',
@@ -56,12 +57,20 @@
         uiEnabled = false;
         var currentTab = (Ti.Platform.name == 'android') ? Titanium.UI.currentTab : dayWindow.tabGroup.activeTab;
         if (e.rowData.scheduleListing) {
-          currentTab.open(DrupalCon.ui.createSessionsWindow({
-            title: e.rowData.title,
-            start_date: e.rowData.start_date,
-            end_date: e.rowData.end_date,
-            tabGroup: currentTab
-          }), {animated:true});
+        	if(e.rowData.mySchedule) {
+        		currentTab.open(DrupalCon.ui.createMyScheduleWindow({
+        			title: e.rowData.title,
+        			tabGroup: currentTab
+        		}), {animated:true});
+        	}
+        	else {
+	          currentTab.open(DrupalCon.ui.createSessionsWindow({
+	            title: e.rowData.title,
+	            start_date: e.rowData.start_date,
+	            end_date: e.rowData.end_date,
+	            tabGroup: currentTab
+	          }), {animated:true});
+          }
         }
         else {
           currentTab.open(DrupalCon.ui.createHtmlWindow({
