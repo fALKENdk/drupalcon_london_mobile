@@ -56,7 +56,7 @@
       if (DrupalCon.renderers[sessions[sessionNum].type]) {
       	sessions[sessionNum].type = 'myschedule';
       	
-      	if(dayName = '' || dayName != DrupalCon.util.getDayName(sessions[sessionNum].start_date)) {
+      	if(dayName != DrupalCon.util.getDayName(sessions[sessionNum].start_date)) {
       		dayName = DrupalCon.util.getDayName(sessions[sessionNum].start_date);
       		
       		if (isAndroid()) {
@@ -86,8 +86,13 @@
     			data.push(dateSection);
       	}
       	
-      	var timeSection = Ti.UI.createTableViewSection();
-				var timeSectionView = Ti.UI.createView({height:'auto', backgroundColor: '#fbf7f3', borderColor: '#e0e0e0', borderWidth: 1});
+      	if (isAndroid()) {
+    			var timeSection = Ti.UI.createTableViewRow({height:'auto', backgroundColor: '#e4e0dd', borderColor: '#bfbcba', borderWidth: 1});
+    		}else{
+      		var timeSection = Ti.UI.createTableViewSection();
+					var timeSectionView = Ti.UI.createView({height:'auto', backgroundColor: '#fbf7f3', borderColor: '#e0e0e0', borderWidth: 1});
+				}
+      	
  
 				var timeSectionLabel = Ti.UI.createLabel({
 				    top:8, bottom:8, left:15, right:19,
@@ -99,8 +104,12 @@
 				    shadowOffset:{x:0, y:1},
 				});
 				 
-				timeSectionView.add(timeSectionLabel);
-				timeSection.headerView = timeSectionView;
+				if (isAndroid()) {
+					timeSection.add(timeSectionLabel);
+				}else{
+					timeSectionView.add(timeSectionLabel);
+					timeSection.headerView = timeSectionView;
+				}
 					
       	data.push(timeSection);
         data.push(DrupalCon.renderers['myschedule'](sessions[sessionNum]));
