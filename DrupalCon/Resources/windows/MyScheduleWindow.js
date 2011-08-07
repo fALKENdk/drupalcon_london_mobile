@@ -92,7 +92,6 @@
       		var timeSection = Ti.UI.createTableViewSection();
 					var timeSectionView = Ti.UI.createView({height:'auto', backgroundColor: '#fbf7f3', borderColor: '#e0e0e0', borderWidth: 1});
 				}
-      	
  
 				var timeSectionLabel = Ti.UI.createLabel({
 				    top:8, bottom:8, left:15, right:19,

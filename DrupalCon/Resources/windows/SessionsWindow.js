@@ -51,9 +51,38 @@
     rows.close();
 
     var sessions = Drupal.entity.db('main', 'node').loadMultiple(nids, ['start_date', 'nid']);
-
+		var lastTime = '';
     for (var sessionNum = 0, numSessions = sessions.length; sessionNum < numSessions; sessionNum++) {
       if (DrupalCon.renderers[sessions[sessionNum].type]) {
+      	if (lastTime == '' || sessions[sessionNum].start_date != lastTime) {
+		      lastTime = sessions[sessionNum].start_date;
+
+		      if (isAndroid()) {
+	    			var timeSection = Ti.UI.createTableViewRow({height:'auto', backgroundColor: '#e4e0dd', borderColor: '#bfbcba', borderWidth: 1});
+	    		}else{
+	      		var timeSection = Ti.UI.createTableViewSection();
+						var timeSectionView = Ti.UI.createView({height:'auto', backgroundColor: '#fbf7f3', borderColor: '#e0e0e0', borderWidth: 1});
+					}
+	      	
+					var timeSectionLabel = Ti.UI.createLabel({
+					    top:8, bottom:8, left:15, right:19,
+					    height:'auto',
+					    text: cleanTime(sessions[sessionNum].start_date) + ' - ' + cleanTime(sessions[sessionNum].end_date),
+					    font:{fontSize:14, fontWeight:'bold'},
+					    color:'#333',
+					    shadowColor:'#FAFAFA',
+					    shadowOffset:{x:0, y:1},
+					});
+					 
+					if (isAndroid()) {
+						timeSection.add(timeSectionLabel);
+					}else{
+						timeSectionView.add(timeSectionLabel);
+						timeSection.headerView = timeSectionView;
+					}
+						
+	      	data.push(timeSection);
+		    }
         data.push(DrupalCon.renderers[sessions[sessionNum].type](sessions[sessionNum]));
       }
       else {

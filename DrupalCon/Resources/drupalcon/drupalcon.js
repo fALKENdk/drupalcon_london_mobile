@@ -175,12 +175,6 @@ var DrupalCon = {
         break;
     }
 
-    // If there is a new session time, insert a header in the table.
-    if (lastTime == '' || session.start_date != lastTime) {
-      lastTime = session.start_date;
-      sessionRow.header = cleanTime(lastTime) + " - " + cleanTime(session.end_date);
-    }
-
     var titleLabel = Ti.UI.createLabel({
       text: sessionTitle,
       font: {fontSize:16, fontWeight:'bold'},
@@ -242,13 +236,6 @@ var DrupalCon = {
 
     var leftSpace = (Ti.Platform.name == 'android') ? 8 : 16;
     var titleColor = '#333';
-    
-
-    // If there is a new session time, insert a header in the table.
-    if (lastTime == '' || session.start_date != lastTime) {
-      lastTime = session.start_date;
-      sessionRow.header = cleanTime(lastTime) + " - " + cleanTime(session.end_date);
-    }
 
     var titleLabel = Ti.UI.createLabel({
       text: sessionTitle,
@@ -317,12 +304,6 @@ var DrupalCon = {
       titleColor = '#269477';
     }
     var leftSpace = (Ti.Platform.name == 'android') ? 30 : 40;
-
-    // If there is a new session time, insert a header in the table.
-    if (lastTime == '' || session.start_date != lastTime) {
-      lastTime = session.start_date;
-      sessionRow.header = cleanTime(lastTime) + " - " + cleanTime(session.end_date);
-    }
 
     var titleLabel = Ti.UI.createLabel({
       text: sessionTitle,
@@ -488,12 +469,6 @@ var DrupalCon = {
 
     var leftSpace = (Ti.Platform.name == 'android') ? 8 : 16;
     var titleColor = '#333';
-
-    // If there is a new session time, insert a header in the table.
-    if (lastTime == '' || session.start_date != lastTime) {
-      lastTime = session.start_date;
-      sessionRow.header = cleanTime(lastTime) + " - " + cleanTime(session.end_date);
-    }
 
     var titleLabel = Ti.UI.createLabel({
       text: sessionTitle,
