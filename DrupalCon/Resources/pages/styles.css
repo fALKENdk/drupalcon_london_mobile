@@ -23,7 +23,7 @@ body {
   color: #000;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 16px;
-  background: #fff;
+  background: #e6e2df;
   margin: 10px 8px 8px;
 
 /* prevents text resizing when phone is turned */
@@ -76,7 +76,8 @@ span.sponsor {
 -------------------------------- */
 body.about {
   background: url('about-identity.png') no-repeat top right;
-  padding-top: 310px;
+  background-color: #e6e2df;
+  padding-top: 250px;
   margin: 0 20px 10px;  
 }
 .about h1,
@@ -113,7 +114,7 @@ body.day {
 dt {
   background: url('timebreak-gradient.png') top center repeat-x;
   height: 23px;
-  color: #fff;
+  color: #e6e2df;
   padding: 2px 0 0 10px;
   font-size: 16px;
   text-shadow: 0 1px 1px #444;
