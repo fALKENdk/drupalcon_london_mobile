@@ -179,7 +179,7 @@
       bodyRow.add(coreProblem);
     }
 
-    if (sessionData.core_solution) {
+    if (sessionData.proposed_solution) {
       var solutionTitle = Ti.UI.createLabel({
         text:"Solution:",
         backgroundColor:'#fff',
@@ -194,8 +194,8 @@
       });
       bodyRow.add(solutionTitle);
 
-      var coreSolution = Ti.UI.createLabel({
-        text: cleanSpecialChars(sessionData.core_solution.replace('\n','\n\n')),
+      var proposedSolution = Ti.UI.createLabel({
+        text: cleanSpecialChars(sessionData.proposed_solution.replace('\n','\n\n')),
         backgroundColor:'#fff',
         textAlign:'left',
         color:'#000',
@@ -205,7 +205,7 @@
         right: commonPadding,
         height: 'auto'
       });
-      bodyRow.add(coreSolution);
+      bodyRow.add(proposedSolution);
     }
 
     tvData.push(headerRow);
