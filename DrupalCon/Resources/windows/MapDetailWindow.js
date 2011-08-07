@@ -43,20 +43,20 @@
   if (isAndroid()) {
     var imageView = Ti.UI.createImageView({
       image: mapImageFileName,
-      backgroundColor:'#003251',
+      backgroundColor:'#e6e2df',
       top: 0,
       bottom: 0,
       left: 0,
       right: 0,
-      height: ht*2,
-      width: (ht*2)*1.5,
+      height: 'auto',
+      width: 'auto',
       canScale: true
     });
     mapDetailWindow.add(imageView);
 
   }
   else {
-    var baseHTML = '<html><head></head><body style="background-color: #003251;" class="maps">' +
+    var baseHTML = '<html><head></head><body style="background-color: #e6e2df;" class="maps">' +
       '  <meta name="viewport" content="target-densityDpi=device-dpi, user-scalable=yes, width=device-width, initial-scale = .25, minimum-scale = .25, maximum-scale = 4.0" />' +
       '  <meta name="apple-mobile-web-app-capable" content="yes" />' +
       '<div class="map">' +

@@ -22,17 +22,19 @@
   DrupalCon.ui.createMapWindow = function(tabGroup) {
     var mapWindow = Titanium.UI.createWindow({
       id: 'mapWindow',
-      title: 'Sheraton Maps',
+      title: 'Maps',
       backgroundColor: '#FFF',
       tabGroup: tabGroup
     });
 
     // create table view data object
     var data = [
-      {title: 'Level 1 - Exhibit Hall',info:true, hasChild:true, backgroundSelectedColor:'#0779BE', color: '#000', image:'images/maps/level1.png'},
-      {title: 'Level 2 - Meeting Rooms', hasChild:true, backgroundSelectedColor:'#0779BE', color: '#000', image:'images/maps/level2.png'},
-      {title: 'Level 3 - Lobby', hasChild:true, backgroundSelectedColor:'#0779BE', color: '#000', image:'images/maps/level3.png'},
-      {title: 'Level 4 - Ballroom', hasChild:true, backgroundSelectedColor:'#0779BE', color: '#000', image:'images/maps/level4.png'}
+      {title: 'Fairfield ground floor',info:true, hasChild:true, backgroundSelectedColor:'#0779BE', color: '#000', image:'images/maps/groundfloor.png'},
+      {title: 'Fairfield first floor - Mezzanine', hasChild:true, backgroundSelectedColor:'#0779BE', color: '#000', image:'images/maps/firstfloor.png'},
+      {title: 'Fairfield second floor', hasChild:true, backgroundSelectedColor:'#0779BE', color: '#000', image:'images/maps/secondfloor.png'},
+      {title: 'Fairfield third floor', hasChild:true, backgroundSelectedColor:'#0779BE', color: '#000', image:'images/maps/thirdfloor.png'},
+      {title: 'Fairfield fourth floor - Core', hasChild:true, backgroundSelectedColor:'#0779BE', color: '#000', image:'images/maps/fourthfloor.png'}
+      //{title: 'Croydon College', hasChild:true, backgroundSelectedColor:'#0779BE', color: '#000', image:'images/maps/croydoncollege.png'}
     ];
 
     // create table view
