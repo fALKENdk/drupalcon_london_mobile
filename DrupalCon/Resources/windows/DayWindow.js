@@ -23,6 +23,7 @@
 
     // Create table view data object.
     var data = [];
+    data.push({title:'My Schedule', hasChild:true, color:'#000', backgroundColor:'#fff', selectedBackgroundColor: '#f3f3f3', scheduleListing: true, mySchedule: true});
     data.push({title:'Registration', hasChild:true, color:'#000', backgroundColor:'#fff', backgroundSelectedColor:'#0779BE', scheduleListing: false, url: 'pages/registration.html'});
     data.push({title:'Monday 22nd August', hasChild:true, color:'#000', backgroundColor:'#fff', backgroundSelectedColor:'#0779BE', scheduleListing: false, url: 'pages/2011-08-22.html'});
     data.push({title:'Tuesday 23rd August', hasChild:true, color:'#000', backgroundColor:'#fff', backgroundSelectedColor:'#0779BE', start_date:'2011-08-23T00:00:00', end_date:'2011-08-24T00:00:00', scheduleListing: true});
@@ -30,7 +31,6 @@
     data.push({title:'Thursday 25th August', hasChild:true, color:'#000', backgroundColor:'#fff', backgroundSelectedColor:'#0779BE', start_date:'2011-08-25T00:00:00', end_date:'2011-08-26T00:00:00', scheduleListing: true});
     data.push({title:'Friday 26th August', hasChild:true, color:'#000', backgroundColor:'#fff', backgroundSelectedColor:'#0779BE', scheduleListing: false, url: 'pages/2011-08-26.html'});
     data.push({title:'Birds of a Feather', hasChild:true, color:'#000', backgroundColor:'#fff', backgroundSelectedColor:'#0779BE', scheduleListing: false, url: 'pages/bofs.html'});
-    data.push({title:'My Schedule', hasChild:true, color:'#000', backgroundColor:'#fff', selectedBackgroundColor: '#f3f3f3', scheduleListing: true, mySchedule: true});
 
     var dayWindow = Titanium.UI.createWindow({
       id: 'win1',

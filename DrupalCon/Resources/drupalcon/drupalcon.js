@@ -140,7 +140,7 @@ var DrupalCon = {
       focusable : false
     });
 
-    var leftSpace = (Ti.Platform.name == 'android') ? 8 : 16;
+    var leftSpace = (Ti.Platform.name == 'android') ? 15 : 25;
     var titleColor = '#333';
     switch (session.track) {
       case "":
@@ -162,7 +162,7 @@ var DrupalCon = {
         sessionRow.backgroundImage =  'images/bgs/ecosystem.png';
         break;
       case "Business Day":
-        sessionRow.backgroundImage =  'images/bgs/buisnessday.png';
+        sessionRow.backgroundImage =  'images/bgs/businessday.png';
         break;
       case "Code &amp; Coders":
         sessionRow.backgroundImage =  'images/bgs/code.png';
@@ -187,9 +187,9 @@ var DrupalCon = {
 
     // Some sessions have multiple presenters
     var presLabel = Ti.UI.createLabel({
-      text: cleanSpecialChars(session.instructors.map(DrupalCon.util.getPresenterName).join(', ')),
-      font: {fontSize:14, fontWeight:'normal'},
-      color: '#000',
+      text: cleanSpecialChars(session.instructors.join(', ')),
+      font: {fontSize:13, fontWeight:'normal'},
+      color: '#333',
       left: leftSpace,
       top: 4,
       bottom: 0,
@@ -203,7 +203,7 @@ var DrupalCon = {
       font: {fontSize:13, fontWeight:'normal', fontStyle:'italic'},
       color: '#666',
       left: leftSpace,
-      top: 1,
+      top: 2,
       bottom: 10,
       right: 10,
       height: 'auto'
@@ -234,7 +234,7 @@ var DrupalCon = {
       layout: 'vertical'
     });
 
-    var leftSpace = (Ti.Platform.name == 'android') ? 8 : 16;
+    var leftSpace = (Ti.Platform.name == 'android') ? 15 : 25;
     var titleColor = '#333';
 
     var titleLabel = Ti.UI.createLabel({
@@ -250,9 +250,9 @@ var DrupalCon = {
 
     // Some sessions have multiple presenters.
     var presLabel = Ti.UI.createLabel({
-      text: session.instructors.map(DrupalCon.util.getPresenterName).join(', '),
-      font: {fontSize:14, fontWeight:'normal'},
-      color: '#000',
+      text: session.instructors.join(', '),
+      font: {fontSize:13, fontWeight:'normal'},
+      color: '#333',
       left: leftSpace,
       top: 2,
       bottom: 0,
@@ -266,7 +266,7 @@ var DrupalCon = {
       font: {fontSize:13, fontWeight:'normal', fontStyle:'italic'},
       color: '#666',
       left: leftSpace,
-      top: 1,
+      top: 2,
       bottom: 10,
       right: 10,
       height: 'auto'
@@ -303,7 +303,7 @@ var DrupalCon = {
       sessionRow.leftImage = 'images/dmb.png';
       titleColor = '#269477';
     }
-    var leftSpace = (Ti.Platform.name == 'android') ? 30 : 40;
+    var leftSpace = (Ti.Platform.name == 'android') ? 15 : 25;
 
     var titleLabel = Ti.UI.createLabel({
       text: sessionTitle,
@@ -320,9 +320,9 @@ var DrupalCon = {
     // get their information submitted in time. Sigh.
     if (session.instructors) {
       var presLabel = Ti.UI.createLabel({
-        text: session.instructors.map(DrupalCon.util.getPresenterName).join(', '),
-        font: {fontSize:14, fontWeight:'normal'},
-        color: '#000',
+        text: session.instructors.join(', '),
+        font: {fontSize:13, fontWeight:'normal'},
+        color: '#333',
         left: leftSpace,
         top: 2,
         bottom: 0,
@@ -337,7 +337,7 @@ var DrupalCon = {
       font: {fontSize:13, fontWeight:'normal', fontStyle:'italic'},
       color: '#666',
       left: leftSpace,
-      top: 1,
+      top: 2,
       bottom: 10,
       right: 10,
       height: 'auto'
@@ -369,7 +369,7 @@ var DrupalCon = {
       //headerView : cleanTime(session.start_date) + ' - ' + cleanTime(session.end_date)
     });
 		
-		var leftSpace = (Ti.Platform.name == 'android') ? 10 : 25;
+		var leftSpace = (Ti.Platform.name == 'android') ? 15 : 25;
     var titleColor = '#333';
     var sessionColor;
 
@@ -418,9 +418,9 @@ var DrupalCon = {
     
     // Some sessions have multiple presenters
     var presLabel = Ti.UI.createLabel({
-      text: cleanSpecialChars(session.instructors.map(DrupalCon.util.getPresenterName).join(', ')),
+      text: cleanSpecialChars(session.instructors.join(', ')),
       font: {fontSize:13, fontWeight:'normal'},
-      color: '#000',
+      color: '#333',
       left: leftSpace,
       top: 4,
       bottom: 0,
@@ -434,7 +434,7 @@ var DrupalCon = {
       font: {fontSize:13, fontWeight:'normal', fontStyle:'italic'},
       color: '#666',
       left: leftSpace,
-      top: 1,
+      top: 2,
       bottom: 10,
       right: 10,
       height: 'auto'
@@ -456,6 +456,7 @@ var DrupalCon = {
       hasChild:false,
       selectedBackgroundColor: '#f3f3f3',
       backgroundColor: '#fff',
+      backgroundImage: 'images/bgs/default.png',
       color: '#000',
       start_date: session.start_date,
       end_date: session.end_date,
@@ -467,7 +468,7 @@ var DrupalCon = {
       focusable : false
     });
 
-    var leftSpace = (Ti.Platform.name == 'android') ? 8 : 16;
+    var leftSpace = (Ti.Platform.name == 'android') ? 15 : 25;
     var titleColor = '#333';
 
     var titleLabel = Ti.UI.createLabel({
