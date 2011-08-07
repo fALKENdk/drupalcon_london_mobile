@@ -214,21 +214,21 @@
     if (sessionData.type === 'session') {
       var feedbackTitle = Ti.UI.createLabel({
         text:'Rate this session',
-        backgroundColor:'#3782a8',
+        backgroundColor:'#ef010f',
         textAlign:'left',
         font:{fontSize:14, fontWeight:'bold'},
         color:'#fff',
         left: commonPadding,
         right: commonPadding,
-        height: 30
+        height: 40
       });
 
       var feedbackRow = Ti.UI.createTableViewRow({
         hasChild: true,
         layout:'vertical',
-        height: 30,
+        height: 40,
         className: 'feedbackRow',
-        backgroundColor:'#3782A9'
+        backgroundColor:'#ef010f'
       });
       feedbackRow.add(feedbackTitle);
 
@@ -250,21 +250,21 @@
     
       var myScheduleTitle = Ti.UI.createLabel({
     		text: scheduleText,
-    		backgroundColor:'#3782a8',
+    		backgroundColor:'#0064a5',
         textAlign:'left',
         font:{fontSize:14, fontWeight:'bold'},
         color:'#fff',
         left: commonPadding,
         right: commonPadding,
-        height: 30
+        height: 40
     	});
     	
     	var myScheduleRow = Ti.UI.createTableViewRow({
     		hasChild: true,
     		layout: 'vertical',
-    		height: 30,
+    		height: 40,
     		className: 'myScheduleRow',
-    		backgroundColor:'#3782a8'
+    		backgroundColor:'#0064a5'
     	});
     	
     	myScheduleRow.addEventListener('click', function(e) {
@@ -300,7 +300,7 @@
     tvData.push(bodyRow);
 
     if (sessionData.audience) {
-      var audienceRow = Ti.UI.createTableViewRow({height: 'auto', className: 'audienceRow', borderColor: '#fff'});
+      var audienceRow = Ti.UI.createTableViewRow({height: 'auto', className: 'audienceRow', borderColor: '#fff', selectedBackgroundColor: '#fff'});
 
       var textViewBottom = Ti.UI.createView({
         height: 'auto',
