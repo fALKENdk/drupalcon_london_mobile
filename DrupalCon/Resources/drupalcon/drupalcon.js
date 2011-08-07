@@ -141,47 +141,37 @@ var DrupalCon = {
     });
 
     var leftSpace = (Ti.Platform.name == 'android') ? 8 : 16;
-    var titleColor = '';
+    var titleColor = '#333';
     switch (session.track) {
       case "":
-        leftSpace = 10;
-        titleColor = '#d32101';
+        sessionRow.backgroundImage = 'images/bgs/default.png';
         break;
       case "Site Building and Environment Set-up":
-        //sessionRow.leftImage = 'images/uxdesign.png';
-        titleColor = '#004a8b';
+        sessionRow.backgroundImage = 'images/bgs/sitebuilding.png';
         break;
       case "Design, UX and Theming":
-        //sessionRow.leftImage = 'images/coder.png';
-        titleColor = '#ff1600';
+        sessionRow.backgroundImage =  'images/bgs/design.png';
         break;
       case "Day Stage":
-        //sessionRow.leftImage = 'images/business.png';
-        titleColor = '#a1dec4';
+        sessionRow.backgroundImage = 'images/bgs/day.png';
         break;
       case "Business and Best Practices":
-       // sessionRow.leftImage = 'images/config.png';
-        titleColor = '#f3d23c';
+        sessionRow.backgroundImage =  'images/bgs/business.png';
         break;
       case "Ecosystem":
-        //sessionRow.leftImage = 'images/community.png';
-        titleColor = '#ffa22a';
+        sessionRow.backgroundImage =  'images/bgs/ecosystem.png';
         break;
       case "Business Day":
-        //sessionRow.leftImage = 'images/coreconv.png';
-        titleColor = '#aaaaaa';
+        sessionRow.backgroundImage =  'images/bgs/buisnessday.png';
         break;
       case "Code &amp; Coders":
-        //sessionRow.leftImage = 'images/theming.png';
-        titleColor = '#0098cd';
+        sessionRow.backgroundImage =  'images/bgs/code.png';
         break;
       case "Core Conversations":
-        //sessionRow.leftImage = 'images/theming.png';
-        titleColor = '#a4632b';
+        sessionRow.backgroundImage =  'images/bgs/core.png';
         break;
       default:
-        //leftSpace = 10;
-        titleColor = '#d32101';
+        sessionRow.backgroundImage = 'images/bgs/default.png';
         break;
     }
 
@@ -226,8 +216,8 @@ var DrupalCon = {
     });
 
     sessionRow.add(titleLabel);
-    sessionRow.add(presLabel);
-    sessionRow.add(roomLabel);
+    if(session.instructors.map(DrupalCon.util.getPresenterName).join(', ')) { sessionRow.add(presLabel); }
+    if(session.room.map(cleanSpecialChars).join(', ')) { sessionRow.add(roomLabel); }
 
     return sessionRow;
   };
@@ -239,6 +229,7 @@ var DrupalCon = {
       hasChild:true,
       selectedBackgroundColor: '#f3f3f3',
       backgroundColor: '#fff',
+      backgroundImage: 'images/bgs/core.png',
       color: '#000',
       start_date: session.start_date,
       end_date: session.end_date,
@@ -250,7 +241,8 @@ var DrupalCon = {
     });
 
     var leftSpace = (Ti.Platform.name == 'android') ? 8 : 16;
-    var titleColor = '#a4632b';
+    var titleColor = '#333';
+    
 
     // If there is a new session time, insert a header in the table.
     if (lastTime == '' || session.start_date != lastTime) {
