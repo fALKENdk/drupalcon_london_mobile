@@ -59,9 +59,13 @@
       	if(dayName = '' || dayName != DrupalCon.util.getDayName(sessions[sessionNum].start_date)) {
       		dayName = DrupalCon.util.getDayName(sessions[sessionNum].start_date);
       		
-      		var dateSection = Ti.UI.createTableViewSection();
-					var dateSectionView = Ti.UI.createView({height:'auto', backgroundColor: '#e4e0dd', borderColor: '#bfbcba', borderWidth: 1});
- 
+      		if (isAndroid()) {
+      			var dateSection = Ti.UI.createTableViewRow({height:'auto', backgroundColor: '#e4e0dd', borderColor: '#bfbcba', borderWidth: 1});
+      		}else{
+	      		var dateSection = Ti.UI.createTableViewSection();
+						var dateSectionView = Ti.UI.createView({height:'auto', backgroundColor: '#e4e0dd', borderColor: '#bfbcba', borderWidth: 1});
+ 					}
+ 					
 					var dateSectionLabel = Ti.UI.createLabel({
 					    top:8, bottom:8, left:15, right:19,
 					    height:'auto',
@@ -71,9 +75,13 @@
 					    shadowColor:'#FAFAFA',
 					    shadowOffset:{x:0, y:1},
 					});
-					 
-					dateSectionView.add(dateSectionLabel);
-					dateSection.headerView = dateSectionView;
+					
+					if (isAndroid()) {
+						dateSection.add(dateSectionLabel);
+					}else{
+						dateSectionView.add(dateSectionLabel);
+						dateSection.headerView = dateSectionView;
+					}
 					
     			data.push(dateSection);
       	}
