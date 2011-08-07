@@ -30,11 +30,11 @@
 
     // create table view data object
     var data = [
-      {title: 'Fairfield ground floor',info:true, hasChild:true, backgroundSelectedColor:'#0779BE', color: '#000', image:'images/maps/groundfloor.png'},
-      {title: 'Fairfield first floor - Mezzanine', hasChild:true, backgroundSelectedColor:'#0779BE', color: '#000', image:'images/maps/firstfloor.png'},
-      {title: 'Fairfield second floor', hasChild:true, backgroundSelectedColor:'#0779BE', color: '#000', image:'images/maps/secondfloor.png'},
-      {title: 'Fairfield third floor', hasChild:true, backgroundSelectedColor:'#0779BE', color: '#000', image:'images/maps/thirdfloor.png'},
-      {title: 'Fairfield fourth floor - Core', hasChild:true, backgroundSelectedColor:'#0779BE', color: '#000', image:'images/maps/fourthfloor.png'}
+      {title: 'Fairfield ground floor', info:true, hasChild:true, backgroundSelectedColor:'#0779BE', color: '#000', image:'images/maps/groundfloor.png'},
+      {title: 'Fairfield first floor - Mezzanine', info:true, hasChild:true, backgroundSelectedColor:'#0779BE', color: '#000', image:'images/maps/firstfloor.png'},
+      {title: 'Fairfield second floor', info:true, hasChild:true, backgroundSelectedColor:'#0779BE', color: '#000', image:'images/maps/secondfloor.png'},
+      {title: 'Fairfield third floor', info:true, hasChild:true, backgroundSelectedColor:'#0779BE', color: '#000', image:'images/maps/thirdfloor.png'},
+      {title: 'Fairfield fourth floor - Core', info:true, hasChild:true, backgroundSelectedColor:'#0779BE', color: '#000', image:'images/maps/fourthfloor.png'}
       //{title: 'Croydon College', hasChild:true, backgroundSelectedColor:'#0779BE', color: '#000', image:'images/maps/croydoncollege.png'}
     ];
 
