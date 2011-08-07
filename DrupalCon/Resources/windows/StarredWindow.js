@@ -22,7 +22,8 @@
       id: 'starredWindow',
       title: 'Starred',
       backgroundColor: '#FFF',
-      tabGroup: tabGroup
+      tabGroup: tabGroup,
+      barColor: '#000'
     });
 
     starredWindow.add(Titanium.UI.createLabel({

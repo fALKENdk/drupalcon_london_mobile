@@ -33,7 +33,8 @@
 			id: 'myScheduleWindow',
 			title: settings.title,
 			backgroundColor: '#FFF',
-			tabGroup: settings.tabGroup
+			tabGroup: settings.tabGroup,
+			barColor: '#000'
 		});
 		
 		var data = [];

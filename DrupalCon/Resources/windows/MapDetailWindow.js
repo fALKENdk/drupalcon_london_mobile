@@ -33,7 +33,8 @@
       height: 'auto',
       title: settings.mapName,
       backgroundColor: '#003251',
-      tabGroup: settings.tabGroup
+      tabGroup: settings.tabGroup,
+      barColor: '#000'
     });
 
 

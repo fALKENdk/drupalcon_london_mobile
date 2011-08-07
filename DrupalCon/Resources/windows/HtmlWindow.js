@@ -30,7 +30,8 @@
       backgroundColor: '#FFF',
       width: 'auto',
       height: 'auto',
-      tabGroup: tabGroup
+      tabGroup: tabGroup,
+      barColor: '#000'
     });
     
     htmlWindow.add(Ti.UI.createWebView({

@@ -24,7 +24,8 @@
       id: 'presentersWindow',
       title: 'Speakers',
       backgroundColor: '#FFF',
-      tabGroup: tabGroup
+      tabGroup: tabGroup,
+      barColor: '#000'
     });
 
     var nameList = getNameList();

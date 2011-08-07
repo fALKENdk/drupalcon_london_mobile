@@ -24,7 +24,8 @@
       id: 'mapWindow',
       title: 'Maps',
       backgroundColor: '#FFF',
-      tabGroup: tabGroup
+      tabGroup: tabGroup,
+      barColor: '#000'
     });
 
     // create table view data object

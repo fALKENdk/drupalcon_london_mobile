@@ -28,7 +28,8 @@
       id: 'sessionDetailWindow',
       title: settings.title,
       backgroundColor: '#FFF',
-      tabGroup: settings.tabGroup
+      tabGroup: settings.tabGroup,
+      barColor: '#000'
     });
 
     // Build session data

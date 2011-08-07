@@ -27,7 +27,8 @@ var Twitter = {
       id: 'twitterWindow',
       title: 'News',
       backgroundColor: '#FFF',
-      tabGroup: tabGroup
+      tabGroup: tabGroup,
+      barColor: '#000'
     });
 
 //    // Trying out something a little different.  Why are we trying to create a

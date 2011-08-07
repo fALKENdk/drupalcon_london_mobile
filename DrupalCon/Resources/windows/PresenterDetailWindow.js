@@ -32,7 +32,8 @@
       id: 'presenterDetailWindow',
       title: presenterData.name,
       backgroundColor: '#FFF',
-      tabGroup: settings.tabGroup
+      tabGroup: settings.tabGroup,
+      barColor: '#000'
     });
 
     var tvData = [];
@@ -127,7 +128,7 @@
 
       twitter.addEventListener('click', function(e) {
         var webview = Titanium.UI.createWebView({url:e.source.twitter});
-        var webWindow = Titanium.UI.createWindow();
+        var webWindow = Titanium.UI.createWindow({barColor: '#000'});
         var currentTab = (Ti.Platform.name == 'android') ? Titanium.UI.currentTab : presenterDetailWindow.tabGroup.activeTab;
         webWindow.add(webview);
         currentTab.open(webWindow);

@@ -36,7 +36,8 @@
       id: 'win1',
       title: 'Schedule',
       backgroundColor: '#fff',
-      tabGroup: tabGroup
+      tabGroup: tabGroup,
+      barColor: '#000'
     });
 
     // create table view
