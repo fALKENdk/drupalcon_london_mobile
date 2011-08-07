@@ -41,6 +41,7 @@
   //  I am so tired that I don't know why I am doing math like below.
   //  This undoubtedly needs work.
   var ht = mapDetailWindow.toImage().height;
+  var wt = mapDetailWindow.toImage().width;
   if (isAndroid()) {
     var imageView = Ti.UI.createImageView({
       image: mapImageFileName,
@@ -49,8 +50,8 @@
       bottom: 0,
       left: 0,
       right: 0,
-      height: 'auto',
-      width: 'auto',
+      height: ht*3,
+      width: wt*3,
       canScale: true
     });
     mapDetailWindow.add(imageView);
