@@ -84,7 +84,7 @@
     // Some sessions have multiple presenters
     if (sessionData.instructors) {
       var presenterName = Ti.UI.createLabel({
-        text: cleanSpecialChars(sessionData.instructors.map(DrupalCon.util.getPresenterName).join(', ')),
+        text: cleanSpecialChars(sessionData.instructors.join(', ')),
         font: {fontSize:18, fontWeight:'normal'},
         color: '#000',
         left: commonPadding,
