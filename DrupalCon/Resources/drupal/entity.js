@@ -165,7 +165,7 @@ Drupal.entity.DefaultSchema.prototype.defaultFetcher = function(bundle, store, f
   var xhr = Titanium.Network.createHTTPClient();
   //xhr.onerror = options.errorHandler;
   xhr.onload = function() {
-    var entities = JSON.parse(this.responseText).entities;
+    var entities = (bundle == 'user') ? JSON.parse(this.responseText).nodes : JSON.parse(this.responseText).entities;
 
     var length = entities.length;
 
@@ -173,7 +173,7 @@ Drupal.entity.DefaultSchema.prototype.defaultFetcher = function(bundle, store, f
 
     for (var i=0; i < length; i++) {
       //Ti.API.debug('Downloading entity: ' + entities[i].entity);
-      store.save(entities[i].entity);
+     (bundle == 'user') ? store.save(entities[i].node) : store.save(entities[i].entity);
     }
 
     // Call our post-completion callback.

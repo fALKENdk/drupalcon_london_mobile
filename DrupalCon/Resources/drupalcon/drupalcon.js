@@ -187,7 +187,7 @@ var DrupalCon = {
 
     // Some sessions have multiple presenters
     var presLabel = Ti.UI.createLabel({
-      text: cleanSpecialChars(session.instructors.join(', ')),
+      text: cleanSpecialChars(session.instructors.map(DrupalCon.util.getPresenterName).join(', ')),
       font: {fontSize:13, fontWeight:'normal'},
       color: '#333',
       left: leftSpace,
@@ -210,7 +210,7 @@ var DrupalCon = {
     });
 
     sessionRow.add(titleLabel);
-    if(session.instructors.map(DrupalCon.util.getPresenterName).join(', ')) { sessionRow.add(presLabel); }
+    if(session.instructors.join(', ')) { sessionRow.add(presLabel); }
     if(session.room.map(cleanSpecialChars).join(', ')) { sessionRow.add(roomLabel); }
 
     return sessionRow;
@@ -250,7 +250,7 @@ var DrupalCon = {
 
     // Some sessions have multiple presenters.
     var presLabel = Ti.UI.createLabel({
-      text: session.instructors.join(', '),
+      text: cleanSpecialChars(session.instructors.map(DrupalCon.util.getPresenterName).join(', ')),
       font: {fontSize:13, fontWeight:'normal'},
       color: '#333',
       left: leftSpace,
@@ -320,7 +320,7 @@ var DrupalCon = {
     // get their information submitted in time. Sigh.
     if (session.instructors) {
       var presLabel = Ti.UI.createLabel({
-        text: session.instructors.join(', '),
+        text: cleanSpecialChars(session.instructors.map(DrupalCon.util.getPresenterName).join(', ')),
         font: {fontSize:13, fontWeight:'normal'},
         color: '#333',
         left: leftSpace,
@@ -418,7 +418,7 @@ var DrupalCon = {
     
     // Some sessions have multiple presenters
     var presLabel = Ti.UI.createLabel({
-      text: cleanSpecialChars(session.instructors.join(', ')),
+      text: cleanSpecialChars(session.instructors.map(DrupalCon.util.getPresenterName).join(', ')),
       font: {fontSize:13, fontWeight:'normal'},
       color: '#333',
       left: leftSpace,

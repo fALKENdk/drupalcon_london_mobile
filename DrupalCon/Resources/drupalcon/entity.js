@@ -134,7 +134,7 @@ Drupal.entity.sites.main.types.node.schema = {
     var lastUpdated = Titanium.App.Properties.getString('drupalcon:fetcher:lastNodeUpdate:' + bundle, '');
 
     url += '?changed=' + lastUpdated;
-
+		
     this.prototype.defaultFetcher.apply(this, [bundle, store, func, url]);
 
     // We need the date in UTC format, because that's what Drupal uses on its
