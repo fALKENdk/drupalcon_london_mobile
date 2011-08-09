@@ -84,7 +84,7 @@
     // Some sessions have multiple presenters
     if (sessionData.instructors) {
       var presenterName = Ti.UI.createLabel({
-        text: cleanSpecialChars(sessionData.instructors.join(', ')),
+        text: cleanSpecialChars(sessionData.instructors.map(DrupalCon.util.getPresenterName).join(', ')),
         font: {fontSize:18, fontWeight:'normal'},
         color: '#000',
         left: commonPadding,
@@ -275,7 +275,7 @@
     			if(DrupalCon.util.myScheduleIsBooked(sessionData.start_date)){
     				var alertDialog = Titanium.UI.createAlertDialog({
 						    title: 'You have already added a session to that timeslot',
-						    message: DrupalCon.util.myScheduleSessionName(sessionData.start_date),
+						    message: cleanSpecialChars(DrupalCon.util.myScheduleSessionName(sessionData.start_date)),
 						    buttonNames: ['Replace','Cancel']
 						});
 						alertDialog.addEventListener('click', function(e) {
@@ -390,7 +390,7 @@
       className: 'presenterRow',
       borderColor: '#fff',
       hasChild: true,
-      backgroundColor: '#C4E2EF',
+      backgroundColor: '#e4e0dd',
       layout:'vertical'
     });
     presRow.add(av);

@@ -94,7 +94,8 @@
     var tableview = Titanium.UI.createTableView({
       data: data,
       backgroundColor: '#fff',
-      layout:'vertical'
+      layout:'vertical',
+      separatorStyle: 0
     });
 
     // Add a menu or button for a track legend

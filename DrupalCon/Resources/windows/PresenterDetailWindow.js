@@ -37,7 +37,6 @@
     });
 
     var tvData = [];
-    var blueBg = '#C4E2EF';
     var	platformWidth = Ti.Platform.displayCaps.platformWidth;
     var platformHeight = Ti.Platform.displayCaps.platformHeight;
 
@@ -61,7 +60,7 @@
     });
     var headerRow = Ti.UI.createTableViewRow({
       height:110,
-      backgroundColor:blueBg,
+      backgroundColor: '#e4e0dd',
       left:0,
       top:-5,
       bottom:0,
@@ -100,16 +99,16 @@
     });
     headerRow.add(name);
 
-    if (presenterData.company != undefined) {
-      var company = Ti.UI.createLabel({
-        text:presenterData.company,
+    if (presenterData.organisation != undefined) {
+      var organisation = Ti.UI.createLabel({
+        text:presenterData.organisation,
         font:{fontSize: 14, fontWeight: 'bold'},
         textAlign: 'left',
         color: '#999',
         height: 'auto',
         left: 120
       });
-      headerRow.add(company);
+      headerRow.add(organisation);
     }
 
     tvData.push(headerRow);
@@ -186,7 +185,7 @@
         sessionTitle:cleanSpecialChars(sessions[i].title),
         nid:sessions[i].nid,
         height: 'auto',
-        backgroundColor: '#dc5531'
+        backgroundColor: '#ef010f'
       });
 
       var titleLabel = Ti.UI.createLabel({

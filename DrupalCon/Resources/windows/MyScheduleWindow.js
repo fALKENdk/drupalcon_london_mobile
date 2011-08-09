@@ -124,7 +124,7 @@
       backgroundColor: '#fff',
       layout:'vertical',
       borderWidth: 0,
-      separatorStyle: 0,
+      separatorStyle: 0
     });
     
     myScheduleWindow.addEventListener('focus', function() {
