@@ -192,6 +192,23 @@ function cleanSpecialChars(str) {
   return '';
 }
 
+/*
+ * Fix some locations
+ */
+function fixLocation(location){
+	if(location == null) {
+		return '';
+	}
+	
+	if(typeof location === 'string') {
+		return location
+			.replace('313/314', '313/314, Croydon College')
+			.replace('Centennial Suite', 'Centennial Suite, Croydon Park Hotel');
+	}
+	
+	return '';
+}
+
 /**
  * Creates a "pretty date" from a Unix time stamp.
  *
@@ -253,29 +270,29 @@ function dayToName(day) {
 
 function monthToName(month) {
   switch (month) {
-    case 1:
+    case 0:
       return 'January';
-    case 2:
+    case 1:
       return 'February';
-    case 3:
+    case 2:
       return 'March';
-    case 4:
+    case 3:
       return 'April';
-    case 5:
+    case 4:
       return 'May';
-    case 6:
+    case 5:
       return 'June';
-    case 7:
+    case 6:
       return 'July';
-    case 8:
+    case 7:
       return 'August';
-    case 9:
+    case 8:
       return 'September';
-    case 10:
+    case 9:
       return 'October';
-    case 11:
+    case 10:
       return 'November';
-    case 12:
+    case 11:
       return 'December';
   }
 }
@@ -298,6 +315,5 @@ function cleanDate(date) {
     default:
       label = 'th';
   }
-
   return dayToName(date.getDay()) + ', ' + monthToName(date.getMonth()) + ' ' +  date.getDate() + label;
 }

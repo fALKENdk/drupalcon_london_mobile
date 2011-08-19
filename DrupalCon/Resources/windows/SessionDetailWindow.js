@@ -34,6 +34,7 @@
 
     // Build session data
     var sessionData = Drupal.entity.db('main', 'node').load(settings.nid);
+    Ti.API.info(sessionData);
     
     // Build the page:
     var tvData = [];
@@ -72,12 +73,13 @@
         text: cleanSpecialChars(sessionData.title),
         font: {fontSize: 28, fontWeight: 'bold'},
         textAlign: 'left',
-        color: '#000',
+        color: '#0060A9',
         left: commonPadding,
         top: 18,
         bottom: 7,
         right: commonPadding,
-        height: 'auto'
+        height: 'auto',
+        title: 'title'
       });
       headerRow.add(titleLabel);
     }
@@ -100,9 +102,9 @@
       var startDate = parseISO8601(sessionData.start_date + ':00');
       var datetime = Ti.UI.createLabel({
         text: cleanDate(startDate) + ', ' + cleanTime(sessionData.start_date),
-        font: {fontSize: 18, fontWeight: 'normal'},
+        font: {fontSize: 16, fontWeight: 'normal'},
         textAlign: 'left',
-        color: '#000',
+        color: '#666',
         left: commonPadding,
         top: 'auto',
         bottom: 5,
@@ -123,10 +125,10 @@
 
     if (sessionData.room && !skipRoom) {
       var room = Ti.UI.createLabel({
-        text: sessionData.room.map(cleanSpecialChars).join(', '),
-        font: {fontSize: 18, fontWeight: 'normal'},
+        text: fixLocation(sessionData.room.map(cleanSpecialChars).join(', ')),
+        font: {fontSize: 16, fontWeight: 'normal'},
         textAlign: 'left',
-        color: '#000',
+        color: '#666',
         left: commonPadding,
         top: 'auto',
         bottom: 12,
@@ -137,17 +139,26 @@
     }
 
     if (sessionData.body) {
-      var body = Ti.UI.createLabel({
-        text: cleanSpecialChars(sessionData.body.replace('\n','\n\n')),
-        backgroundColor:'#fff',
-        textAlign:'left',
-        color:'#000',
-        left: commonPadding,
-        top: 15,
-        bottom: 15,
-        right: commonPadding,
-        height: 'auto'
-      });
+    	if(sessionData.title){
+	    	if(sessionData.title.lastIndexOf('Keynote:', 0) === 0){
+	    		var body = Ti.UI.createLabel({
+			      text: '',
+				  });
+	    	}else{
+	    		var body = Ti.UI.createLabel({
+			      text: cleanSpecialChars(sessionData.body.replace('\n','\n\n')),
+			      backgroundColor:'#fff',
+			      textAlign:'left',
+			      color:'#000',
+			      left: commonPadding,
+			      top: 15,
+			      bottom: 15,
+			      right: commonPadding,
+			      height: 'auto'
+				  });
+	    	}
+    	}
+      
       bodyRow.add(body);
     }
 
@@ -224,12 +235,19 @@
       });
 
       var feedbackRow = Ti.UI.createTableViewRow({
-        hasChild: true,
         layout:'vertical',
         height: 40,
         className: 'feedbackRow',
-        backgroundColor:'#ef010f'
+        backgroundColor:'#ef010f',
+        selectedBackgroundColor: '#c4030e'
       });
+      
+      if(isAndroid()){
+				feedbackRow.rightImage = 'images/rightArrow.png';
+			}else{
+				feedbackRow.hasChild = true;
+			}
+      
       feedbackRow.add(feedbackTitle);
 
       feedbackRow.addEventListener('click', function(e) {
@@ -260,12 +278,18 @@
     	});
     	
     	var myScheduleRow = Ti.UI.createTableViewRow({
-    		hasChild: true,
     		layout: 'vertical',
     		height: 40,
     		className: 'myScheduleRow',
-    		backgroundColor:'#0064a5'
+    		backgroundColor:'#0064a5',
+    		selectedBackgroundColor:'#014978'
     	});
+    	
+    	if(isAndroid()){
+				myScheduleRow.rightImage = 'images/rightArrow.png';
+			}else{
+				myScheduleRow.hasChild = true;
+			}
     	
     	myScheduleRow.addEventListener('click', function(e) {
     		if(DrupalCon.util.myScheduleIsAdded(sessionData.nid)){
@@ -389,10 +413,16 @@
       height: 80,
       className: 'presenterRow',
       borderColor: '#fff',
-      hasChild: true,
       backgroundColor: '#e4e0dd',
       layout:'vertical'
     });
+    
+    if(isAndroid()){
+			presRow.rightImage = 'images/rightArrow.png';
+		}else{
+			presRow.hasChild = true;
+		}
+    
     presRow.add(av);
     var presenterFullName2 = Ti.UI.createLabel({
       presenter: presenter,
@@ -401,17 +431,17 @@
       left: 90,
       top: -70,
       height: 'auto',
-      color: '#000'
+      color: '#0060A9'
     });
     dpm(presenter.full_name);
     var presenterName2 = Ti.UI.createLabel({
       presenter: presenter,
       text: presenter.name,
-      font:{fontSize:14, fontWeight:'normal'},
+      font:{fontSize:14, fontWeight:'normal', fontStyle:'italic'},
       left: 90,
       top: (presenter.full_name != null) ? 5 : 0,
       height: 'auto',
-      color: "#04679C"
+      color: "#666"
     });
 
     presRow.add(presenterFullName2);

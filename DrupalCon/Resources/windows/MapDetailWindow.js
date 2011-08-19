@@ -24,7 +24,9 @@
       name: '',
       tabGroup: undefined
     });
-
+		
+		Ti.API.info(settings);
+		
     var mapImageFileName = settings.image;
 
     var mapDetailWindow = Titanium.UI.createWindow({
@@ -32,7 +34,7 @@
       width: 'auto',
       height: 'auto',
       title: settings.mapName,
-      backgroundColor: '#003251',
+      backgroundColor: '#534d47',
       tabGroup: settings.tabGroup,
       barColor: '#000'
     });
@@ -45,20 +47,22 @@
   if (isAndroid()) {
     var imageView = Ti.UI.createImageView({
       image: mapImageFileName,
-      backgroundColor:'#e6e2df',
+      backgroundColor:'#534d47',
       top: 0,
       bottom: 0,
       left: 0,
       right: 0,
-      height: ht*3,
-      width: wt*3,
+      //height: ht*3,
+      //width: wt*3,
+      height: 'auto',
+      width: 'auto',
       canScale: true
     });
     mapDetailWindow.add(imageView);
 
   }
   else {
-    var baseHTML = '<html><head></head><body style="background-color: #e6e2df;" class="maps">' +
+    var baseHTML = '<html><head></head><body style="background-color: #534d47;" class="maps">' +
       '  <meta name="viewport" content="target-densityDpi=device-dpi, user-scalable=yes, width=device-width, initial-scale = .25, minimum-scale = .25, maximum-scale = 4.0" />' +
       '  <meta name="apple-mobile-web-app-capable" content="yes" />' +
       '<div class="map">' +
@@ -83,7 +87,7 @@
           m1.addEventListener('click', function(e) {
             var currentTab = (Ti.Platform.name == 'android') ? currentTab = Titanium.UI.currentTab : mapDetailWindow.tabGroup.activeTab;
             currentTab.open(DrupalCon.ui.createHtmlWindow({
-              title: 'Exhibitors',
+              title: 'Sponsors',
               url: 'pages/exhibitors.html',
               tabGroup: currentTab
             }), {animated:true});
@@ -100,7 +104,7 @@
         button.addEventListener('click', function() {
           var currentTab = (Ti.Platform.name == 'android') ? currentTab = Titanium.UI.currentTab : mapDetailWindow.tabGroup.activeTab;
             currentTab.open(DrupalCon.ui.createHtmlWindow({
-              title: 'Exhibitors',
+              title: 'Sponsors',
               url: 'pages/exhibitors.html',
               tabGroup: currentTab
           }), {animated:true});

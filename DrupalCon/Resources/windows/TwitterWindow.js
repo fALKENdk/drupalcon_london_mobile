@@ -101,13 +101,15 @@ var Twitter = {
 
             }
             var created_at = prettyDate(strtotime(tweets[c].created_at));
-            var bgcolor = (c % 2) === 0 ? '#fff' : '#eee';
-
+            var bgcolor = (c % 2) === 0 ? '#fbf7f3' : '#e4e0dd';
+						var selectedcolor = (c % 2) === 0 ? '#d6d3d1' : '#d6d3d1';
+						
             var row = Ti.UI.createTableViewRow({
               hasChild:true,
               backgroundColor:bgcolor,
               height:'auto',
-              date:created_at
+              date:created_at,
+              selectedBackgroundColor: selectedcolor
             });
 
             // Create a vertical layout view to hold all the info labels and images for each tweet

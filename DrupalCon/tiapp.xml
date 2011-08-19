@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <ti:app xmlns:ti="http://ti.appcelerator.org">
     <deployment-targets>
-        <target device="mobileweb">true</target>
+        <target device="mobileweb">false</target>
         <target device="iphone">true</target>
-        <target device="ipad">true</target>
-        <target device="blackberry">false</target>
+        <target device="ipad">false</target>
         <target device="android">true</target>
+        <target device="blackberry">false</target>
     </deployment-targets>
-<id>net.palantir.drupalcon</id>
-<name>DrupalCon</name>
-<version>1.2</version>
-<publisher>Palantir.net</publisher>
-<url>http://www.palantir.net/</url>
-<description>DrupalCon London mobile companion</description>
-<copyright>2011 Palantir.net and others</copyright>
-<icon>default_app_logo.png</icon>
+    <id>org.drupalcon.london2011</id>
+    <name>DrupalCon London</name>
+    <version>1.0</version>
+    <publisher>DrupalConLondon</publisher>
+    <url>http://london2011.drupalcon.org</url>
+    <description>DrupalCon London mobile companion</description>
+    <copyright>2011 Palantir.net, Jeff Veit, Kasper Christensen and others</copyright>
+    <icon>appicon.png</icon>
     <persistent-wifi>false</persistent-wifi>
     <prerendered-icon>false</prerendered-icon>
     <statusbar-style>default</statusbar-style>
@@ -22,18 +22,19 @@
     <fullscreen>false</fullscreen>
     <navbar-hidden>false</navbar-hidden>
     <analytics>true</analytics>
-<guid>1d61d498-4cc3-4336-9364-b6d200c4cd82</guid>
+    <guid>83731af0-8aea-4b04-9c12-ef7557b091b8</guid>
 	<iphone>
 		<orientations device="iphone">
+			<orientation>Ti.UI.PORTRAIT</orientation>
+		</orientations>
+		<orientations device="ipad">
 			<orientation>Ti.UI.PORTRAIT</orientation>
 			<orientation>Ti.UI.UPSIDE_PORTRAIT</orientation>
 			<orientation>Ti.UI.LANDSCAPE_LEFT</orientation>
 			<orientation>Ti.UI.LANDSCAPE_RIGHT</orientation>
 		</orientations>
-<icon>default_app_logo.png</icon>
 	</iphone>
 	<android xmlns:android="http://schemas.android.com/apk/res/android">
-<icon>default_app_logo.png</icon>
 	</android>
 	<modules>
 	</modules>

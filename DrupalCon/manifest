@@ -1,8 +1,8 @@
-#appname: DrupalCon
-#publisher: Palantir.net
-#url: http://www.palantir.net/
-#image: appicon.png
-#appid: net.palantir.drupalcon
-#desc: DrupalCon Chicago mobile companion
-#type: mobile
-#guid: 1d61d498-4cc3-4336-9364-b6d200c4cd82
+#appname:DrupalCon London
+#publisher:DrupalConLondon
+#url:http://london2011.drupalcon.org
+#image:appicon.png
+#appid:org.drupalcon.london2011
+#desc:DrupalCon London mobile companion
+#type:mobile
+#guid:83731af0-8aea-4b04-9c12-ef7557b091b8

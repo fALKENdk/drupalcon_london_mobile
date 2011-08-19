@@ -55,9 +55,9 @@ function getTweets(screen_name){
 				var user = tweets[c].user.screen_name;
 				var avatar = tweets[c].user.profile_image_url;
 				var created_at = prettyDate(strtotime(tweets[c].created_at));
-				var bgcolor = (c % 2) == 0 ? '#fff' : '#eee';
+				var bgcolor = (c % 2) == 0 ? '#fbf7f3' : '#e0e0e0';
 
-				var row = Ti.UI.createTableViewRow({hasChild:false,height:'auto',backgroundColor:bgcolor});
+				var row = Ti.UI.createTableViewRow({hasChild:false,height:'auto',backgroundColor:bgcolor,selectedBackgroundColor: '#e4e0dd'});
 
 				// Create a vertical layout view to hold all the info labels and images for each tweet
 				var post_view = Ti.UI.createView({

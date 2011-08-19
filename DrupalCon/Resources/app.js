@@ -66,7 +66,7 @@ if (!Drupal.db.getConnection('main').tableExists('user')) {
 // to 15 Feb as the oldest to pull from.  That avoids ever downloading the entire
 // site, since we have a pre-loaded database.
 if ('' == Titanium.App.Properties.getString('drupalcon:fetcher:lastNodeUpdate:session', '')) {
-  Titanium.App.Properties.setString('drupalcon:fetcher:lastNodeUpdate:session', '2011-02-28T12:00:00');
+  Titanium.App.Properties.setString('drupalcon:fetcher:lastNodeUpdate:session', '2011-08-12T12:00:00');
 }
 
 // This is just for testing purposes. In practice we wouldn't

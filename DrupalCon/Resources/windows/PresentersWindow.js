@@ -62,7 +62,6 @@
       }
 
       presenterRow = Ti.UI.createTableViewRow({
-        hasChild: true,
         selectedColor: '#fff',
         backgroundColor: '#fff',
         backgroundSelectedColor: '#0779BE',
@@ -70,8 +69,15 @@
         name: name,
         uid: uid,
         height: 40,
-        layout: 'auto'
+        layout: 'auto',
+        className: 'presenterrow'
       });
+      
+      if(isAndroid()){
+				presenterRow.rightImage = 'images/rightArrow.png';
+			}else{
+				presenterRow.hasChild = true;
+			}
 
       if (fullName == shortName) {
         fullName = '';

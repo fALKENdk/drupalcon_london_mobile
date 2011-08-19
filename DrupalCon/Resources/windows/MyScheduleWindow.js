@@ -52,6 +52,7 @@
 		var sessions = Drupal.entity.db('main', 'node').loadMultiple(nids, ['start_date', 'nid']);
 		var dayName;
 		
+		if(sessions.length >= 1){
     for (var sessionNum = 0, numSessions = sessions.length; sessionNum < numSessions; sessionNum++) {
       if (DrupalCon.renderers[sessions[sessionNum].type]) {
       	sessions[sessionNum].type = 'myschedule';
@@ -60,7 +61,7 @@
       		dayName = DrupalCon.util.getDayName(sessions[sessionNum].start_date);
       		
       		if (isAndroid()) {
-      			var dateSection = Ti.UI.createTableViewRow({height:'auto', backgroundColor: '#e4e0dd', borderColor: '#bfbcba', borderWidth: 1});
+      			var dateSection = Ti.UI.createTableViewRow({height:'auto', backgroundColor: '#e4e0dd', borderColor: '#bfbcba', borderWidth: 1, className: 'datesection'});
       		}else{
 	      		var dateSection = Ti.UI.createTableViewSection();
 						var dateSectionView = Ti.UI.createView({height:'auto', backgroundColor: '#e4e0dd', borderColor: '#bfbcba', borderWidth: 1});
@@ -87,10 +88,10 @@
       	}
       	
       	if (isAndroid()) {
-    			var timeSection = Ti.UI.createTableViewRow({height:'auto', backgroundColor: '#e4e0dd', borderColor: '#bfbcba', borderWidth: 1});
+    			var timeSection = Ti.UI.createTableViewRow({height:'auto', backgroundColor: '#edeae6', borderColor: '#d6d6d6', borderWidth: 1, className: 'timesection'});
     		}else{
       		var timeSection = Ti.UI.createTableViewSection();
-					var timeSectionView = Ti.UI.createView({height:'auto', backgroundColor: '#fbf7f3', borderColor: '#e0e0e0', borderWidth: 1});
+					var timeSectionView = Ti.UI.createView({height:'auto', backgroundColor: '#edeae6', borderColor: '#d6d6d6', borderWidth: 1});
 				}
  
 				var timeSectionLabel = Ti.UI.createLabel({
@@ -117,6 +118,22 @@
         Ti.API.info('Not rendering for node type: ' + sessions[sessionNum].type);
       }
     }
+    } else {
+    	var noSessionRow = Ti.UI.createTableViewRow({
+    		height:'auto', backgroundColor: '#e4e0dd', borderColor: '#bfbcba', borderWidth: 1
+    	});
+    	var noSessionLabel = Ti.UI.createLabel({
+				text: 'You have not added any sessions to your schedule yet',
+				top:8, bottom:8, left:15, right:19,
+				    height:'auto',
+				    font:{fontSize:14, fontWeight:'bold'},
+				    color:'#333',
+				    shadowColor:'#FAFAFA',
+				    shadowOffset:{x:0, y:1}, 		
+    	});
+    	noSessionRow.add(noSessionLabel);
+    	data.push(noSessionRow);
+    }
 		
 		// create table view
     var tableview = Titanium.UI.createTableView({
@@ -134,13 +151,15 @@
     // Create table view event listener.
     tableview.addEventListener('click', function(e) {
       if (uiEnabled) {
-        uiEnabled = false;
-        var currentTab = (Ti.Platform.name == 'android') ? currentTab = Titanium.UI.currentTab : myScheduleWindow.tabGroup.activeTab;
-        currentTab.open(DrupalCon.ui.createSessionDetailWindow({
-          title: e.rowData.sessionTitle,
-          nid: e.rowData.nid,
-          tabGroup: currentTab
-        }), {animated:true});
+      	if(e.rowData.sessionTitle){
+	        uiEnabled = false;
+	        var currentTab = (Ti.Platform.name == 'android') ? currentTab = Titanium.UI.currentTab : myScheduleWindow.tabGroup.activeTab;
+	        currentTab.open(DrupalCon.ui.createSessionDetailWindow({
+	          title: e.rowData.sessionTitle,
+	          nid: e.rowData.nid,
+	          tabGroup: currentTab
+	        }), {animated:true});
+        }
       }
     });
 

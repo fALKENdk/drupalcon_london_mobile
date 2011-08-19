@@ -50,7 +50,7 @@
     }
     rows.close();
 
-    var sessions = Drupal.entity.db('main', 'node').loadMultiple(nids, ['start_date', 'nid']);
+    var sessions = Drupal.entity.db('main', 'node').loadMultiple(nids, ['start_date', 'title', 'nid']);
 		var lastTime = '';
     for (var sessionNum = 0, numSessions = sessions.length; sessionNum < numSessions; sessionNum++) {
       if (DrupalCon.renderers[sessions[sessionNum].type]) {
@@ -58,10 +58,10 @@
 		      lastTime = sessions[sessionNum].start_date;
 
 		      if (isAndroid()) {
-	    			var timeSection = Ti.UI.createTableViewRow({height:'auto', backgroundColor: '#e4e0dd', borderColor: '#bfbcba', borderWidth: 1});
+	    			var timeSection = Ti.UI.createTableViewRow({height:'auto', backgroundColor: '#edeae6', borderColor: '#d6d6d6', borderWidth: 1, className: 'timesection'});
 	    		}else{
 	      		var timeSection = Ti.UI.createTableViewSection();
-						var timeSectionView = Ti.UI.createView({height:'auto', backgroundColor: '#fbf7f3', borderColor: '#e0e0e0', borderWidth: 1});
+						var timeSectionView = Ti.UI.createView({height:'auto', backgroundColor: '#edeae6', borderColor: '#d6d6d6', borderWidth: 1});
 					}
 	      	
 					var timeSectionLabel = Ti.UI.createLabel({
@@ -71,7 +71,7 @@
 					    font:{fontSize:14, fontWeight:'bold'},
 					    color:'#333',
 					    shadowColor:'#FAFAFA',
-					    shadowOffset:{x:0, y:1},
+					    shadowOffset:{x:0, y:1}
 					});
 					 
 					if (isAndroid()) {
@@ -141,13 +141,15 @@
     // Create table view event listener.
     tableview.addEventListener('click', function(e) {
       if (uiEnabled) {
-        uiEnabled = false;
-        var currentTab = (Ti.Platform.name == 'android') ? currentTab = Titanium.UI.currentTab : sessionsWindow.tabGroup.activeTab;
-        currentTab.open(DrupalCon.ui.createSessionDetailWindow({
-          title: e.rowData.sessionTitle,
-          nid: e.rowData.nid,
-          tabGroup: currentTab
-        }), {animated:true});
+      	if(e.rowData.sessionTitle){
+	        uiEnabled = false;
+	        var currentTab = (Ti.Platform.name == 'android') ? currentTab = Titanium.UI.currentTab : sessionsWindow.tabGroup.activeTab;
+	        currentTab.open(DrupalCon.ui.createSessionDetailWindow({
+	          title: e.rowData.sessionTitle,
+	          nid: e.rowData.nid,
+	          tabGroup: currentTab
+	        }), {animated:true});
+        }
       }
     });
 

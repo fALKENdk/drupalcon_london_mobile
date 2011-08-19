@@ -155,6 +155,9 @@ body.registration {
   font-size: 180%;
 }
 
+.registration table { margin: 0 15px; }
+.registration td { border-bottom: 1px solid #bbb; padding: 5px; margin: 5px; }
+
 /* BoFs page 
 -------------------------------- */
 body.bofs {
@@ -177,56 +180,54 @@ body.bofs {
 /* Legend page 
 -------------------------------- */
 body.legend {
-	margin-top: 30px;
+	margin: 0;
+	padding: 0;
 }
 .legend div {
-  padding-top: 1px;
+  padding: 1px 8px 0;
 }
 .legend h2 {
-  padding: 15px 10px 0px;
-  margin: -15px 0 -5px 28px;
+	color: #FFF;
+  margin: 15px 0 5px 0;
   font-size: 16px;
 }
-.legend img {
-  height: 21px;
-  width: 21px;
-  float: left;
-}
+.legend h2 span { padding: 4px 5px; display: block; }
+
 .legend p {
   padding: 0 5px;
 }
 .coreconv {
-  color: #a4632b; 
+  background: #a4632b; 
 }
 .daystage { 
-  color: #a1dec4; 
+  background: #a1dec4; 
 }
 .dmb { 
-  color: #aaaaaa; 
+  background: #aaaaaa; 
 }
 .coder { 
-  color: #0098cd; 
+  background: #0098cd; 
 }
 .config { 
-  color: #004a8b; 
+  background: #004a8b; 
 }
 .community { 
-  color: #ffa22a; 
+  background: #ffa22a; 
 }
 .theming { 
-  color: #e5393e; 
+  background: #e5393e; 
 }
 .business { 
-  color: #f3d23c; 
+  background: #f3d23c; 
 }
 .uxdesign { 
-  color: #ff1600; 
+  background: #ff1600; 
 }
 
 /* Exhbitors page
 -------------------------------- */
 body.exhibitors {
-  margin-top: 0;
+  margin-top: 5px;
 }
 .exhibitors div { 
   text-align:left;
@@ -240,6 +241,9 @@ body.exhibitors {
   float: right; 
 }
 
+.exhibitors p {
+	margin: 5px 0;
+}
 /* Shadows
 -------------------------------- */
 .boxshadow { box-shadow: 1px 1px 1px #666; -webkit-box-shadow: 1px 1px 1px #666; }

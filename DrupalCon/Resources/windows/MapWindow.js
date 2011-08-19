@@ -27,20 +27,51 @@
       tabGroup: tabGroup,
       barColor: '#000'
     });
-
+		var rows = [];
     // create table view data object
     var data = [
-      {title: 'Fairfield ground floor', info:true, hasChild:true, backgroundSelectedColor:'#0779BE', color: '#000', image:'images/maps/groundfloor.png'},
-      {title: 'Fairfield first floor - Mezzanine', info:true, hasChild:true, backgroundSelectedColor:'#0779BE', color: '#000', image:'images/maps/firstfloor.png'},
-      {title: 'Fairfield second floor', info:true, hasChild:true, backgroundSelectedColor:'#0779BE', color: '#000', image:'images/maps/secondfloor.png'},
-      {title: 'Fairfield third floor', info:true, hasChild:true, backgroundSelectedColor:'#0779BE', color: '#000', image:'images/maps/thirdfloor.png'},
-      {title: 'Fairfield fourth floor - Core', info:true, hasChild:true, backgroundSelectedColor:'#0779BE', color: '#000', image:'images/maps/fourthfloor.png'}
+      {title: 'Fairfield ground floor', infodata:true, hasChild:true, backgroundSelectedColor:'#0779BE', color: '#000', image:'images/maps/groundfloor.png'},
+      {title: 'Fairfield first floor', infodata:true, hasChild:true, backgroundSelectedColor:'#0779BE', color: '#000', image:'images/maps/firstfloor.png'},
+      {title: 'Fairfield second floor', infodata:true, hasChild:true, backgroundSelectedColor:'#0779BE', color: '#000', image:'images/maps/secondfloor.png'},
+      {title: 'Fairfield third floor', infodata:true, hasChild:true, backgroundSelectedColor:'#0779BE', color: '#000', image:'images/maps/thirdfloor.png'},
+      {title: 'Fairfield fourth floor', infodata:true, hasChild:true, backgroundSelectedColor:'#0779BE', color: '#000', image:'images/maps/fourthfloor.png'}
       //{title: 'Croydon College', hasChild:true, backgroundSelectedColor:'#0779BE', color: '#000', image:'images/maps/croydoncollege.png'}
     ];
-
+		
+		for(var dataNum = 0, numData = data.length; dataNum < numData; dataNum++) {
+			
+			var row = Ti.UI.createTableViewRow({
+				height:'auto', 
+				backgroundColor: '#edeae6', 
+				selectedBackgroundColor: '#e4e0dd',
+				borderColor: '#e0e0e0', 
+				borderWidth: 1, 
+				hasChild: data[dataNum].hasChild,
+				image: data[dataNum].image,
+				windowTitle: data[dataNum].title,
+				info: data[dataNum].infodata,
+				className: 'maprow'
+			});
+			
+	    var label = Ti.UI.createLabel({
+	    	text: data[dataNum].title,
+	    	top:14, bottom:14, left:15, right:19,
+		    height:'auto',
+		    font:{fontSize:14, fontWeight:'bold'},
+		    color:'#333',
+		    shadowColor:'#FAFAFA',
+				shadowOffset:{x:0, y:1},
+	    });
+	    row.add(label);
+	    rows.push(row);
+		}
+		
     // create table view
     var tableview = Titanium.UI.createTableView({
-      data: data
+      data: rows,
+      color: '#FFF',
+      layout:'vertical',
+      separatorColor: '#d6d6d6'
     });
 
     // add table view to the window
@@ -65,8 +96,8 @@
         uiEnabled = false;
         var currentTab = (Ti.Platform.name == 'android') ? Titanium.UI.currentTab : mapWindow.tabGroup.activeTab;
         currentTab.open(DrupalCon.ui.createMapDetailWindow({
-          title: e.rowData.title,
-          mapName: e.rowData.title,
+          title: e.rowData.windowTitle,
+          mapName: e.rowData.windowTitle,
           image: e.rowData.image,
           info: e.rowData.info,
           tabGroup: currentTab

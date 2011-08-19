@@ -126,8 +126,7 @@ var DrupalCon = {
     var sessionTitle = cleanSpecialChars(session.title);
 
     var sessionRow = Ti.UI.createTableViewRow({
-      hasChild:true,
-      selectedBackgroundColor: '#f3f3f3',
+      selectedBackgroundColor: '#e4e0dd',
       backgroundColor: '#fff',
       color: '#000',
       start_date: session.start_date,
@@ -137,9 +136,17 @@ var DrupalCon = {
       itemType: session.type,
       height: 'auto',
       layout: 'vertical',
-      focusable : false
+      focusable : false,
+      className: 'session',
+      id: 'session'+session.nid
     });
-
+		
+		if(isAndroid()){
+			sessionRow.rightImage = 'images/rightArrow.png';
+		}else{
+			sessionRow.hasChild = true;
+		}
+		
     var leftSpace = (Ti.Platform.name == 'android') ? 15 : 25;
     var titleColor = '#333';
     switch (session.track) {
@@ -200,7 +207,7 @@ var DrupalCon = {
 
     // Some things, like keynote, have multiple rooms
     var roomLabel = Ti.UI.createLabel({
-      text: session.room.map(cleanSpecialChars).join(', '),
+      text: fixLocation(session.room.map(cleanSpecialChars).join(', ')),
       font: {fontSize:13, fontWeight:'normal', fontStyle:'italic'},
       color: '#7e7e7e',
       left: leftSpace,
@@ -221,8 +228,7 @@ var DrupalCon = {
     var sessionTitle = cleanSpecialChars(session.title);
 
     var sessionRow = Ti.UI.createTableViewRow({
-      hasChild:true,
-      selectedBackgroundColor: '#f3f3f3',
+      selectedBackgroundColor: '#e4e0dd',
       backgroundColor: '#fff',
       backgroundImage: 'images/bgs/core.png',
       color: '#000',
@@ -232,9 +238,17 @@ var DrupalCon = {
       sessionTitle: sessionTitle,
       itemType: session.type,
       height: 'auto',
-      layout: 'vertical'
+      layout: 'vertical',
+      className: 'coreconversation',
+      id: 'coreconversation'+session.nid
     });
-
+		
+		if(isAndroid()){
+			sessionRow.rightImage = 'images/rightArrow.png';
+		}else{
+			sessionRow.hasChild = true;
+		}
+		
     var leftSpace = (Ti.Platform.name == 'android') ? 15 : 25;
     var titleColor = '#333';
 
@@ -263,7 +277,7 @@ var DrupalCon = {
 
     // Some things, like keynote, have multiple rooms
     var roomLabel = Ti.UI.createLabel({
-      text: session.room.map(cleanSpecialChars).join(', '),
+      text: fixLocation(session.room.map(cleanSpecialChars).join(', ')),
       font: {fontSize:13, fontWeight:'normal', fontStyle:'italic'},
       color: '#7e7e7e',
       left: leftSpace,
@@ -284,8 +298,7 @@ var DrupalCon = {
     var sessionTitle = cleanSpecialChars(session.title);
     
     var sessionRow = Ti.UI.createTableViewRow({
-      hasChild:true,
-      selectedBackgroundColor: '#f3f3f3',
+      selectedBackgroundColor: '#e4e0dd',
       backgroundColor: '#fff',
       color: '#000',
       start_date: session.start_date,
@@ -295,9 +308,17 @@ var DrupalCon = {
       itemType: session.type,
       height: 'auto',
       layout: 'vertical',
-      focusable : false
+      focusable : false,
+      className: 'daystage',
+      id: 'day_stage'+session.nid
     });
-
+		
+		if(isAndroid()){
+			sessionRow.rightImage = 'images/rightArrow.png';
+		}else{
+			sessionRow.hasChild = true;
+		}
+		
     var titleColor = '#ab7d66';
 
     if (session.start_date.substr(8,2) == '10') {
@@ -331,7 +352,7 @@ var DrupalCon = {
 
     // Some things, like keynote, have multiple rooms
     var roomLabel = Ti.UI.createLabel({
-      text: session.room.map(cleanSpecialChars).join(', '),
+      text: fixLocation(session.room.map(cleanSpecialChars).join(', ')),
       font: {fontSize:13, fontWeight:'normal', fontStyle:'italic'},
       color: '#7e7e7e',
       left: leftSpace,
@@ -344,14 +365,14 @@ var DrupalCon = {
     sessionRow.add(titleLabel);
     sessionRow.add(presLabel);
     sessionRow.add(roomLabel);
+    
+    sessionRow.height = 'auto';
 
     return sessionRow;
   };
 	
 	DrupalCon.renderers.myschedule = function(session) {
-		Ti.API.info(session);
 		var sessionRow = Ti.UI.createTableViewRow({
-      hasChild:true,
       backgroundColor: '#fff',
       color: '#333',
       start_date: session.start_date,
@@ -363,15 +384,23 @@ var DrupalCon = {
       layout: 'vertical',
       focusable : true,
       borderWidth: 0,
-      backgroundSelectedImage: 'images/bgs/sitebuildingActive.png'
+      backgroundSelectedImage: 'images/bgs/sitebuildingActive.png',
+      className: 'myschedule',
+      id: 'myschedule'+session.nid
       //headerView : cleanTime(session.start_date) + ' - ' + cleanTime(session.end_date)
     });
+		
+		if(isAndroid()){
+			sessionRow.rightImage = 'images/rightArrow.png';
+		}else{
+			sessionRow.hasChild = true;
+		}
 		
 		var leftSpace = (Ti.Platform.name == 'android') ? 15 : 25;
     var titleColor = '#333';
     var sessionColor;
 
-    switch (session.track) {
+   switch (session.track) {
       case "":
         sessionRow.backgroundImage = 'images/bgs/default.png';
         break;
@@ -391,7 +420,7 @@ var DrupalCon = {
         sessionRow.backgroundImage =  'images/bgs/ecosystem.png';
         break;
       case "Business Day":
-        sessionRow.backgroundImage =  'images/bgs/buisnessday.png';
+        sessionRow.backgroundImage =  'images/bgs/businessday.png';
         break;
       case "Code &amp; Coders":
         sessionRow.backgroundImage =  'images/bgs/code.png';
@@ -429,7 +458,7 @@ var DrupalCon = {
 
     // Some things, like keynote, have multiple rooms
     var roomLabel = Ti.UI.createLabel({
-      text: session.room.map(cleanSpecialChars).join(', '),
+      text: fixLocation(session.room.map(cleanSpecialChars).join(', ')),
       font: {fontSize:13, fontWeight:'normal', fontStyle:'italic'},
       color: '#7e7e7e',
       left: leftSpace,
@@ -453,7 +482,7 @@ var DrupalCon = {
 		
     var sessionRow = Ti.UI.createTableViewRow({
       hasChild:false,
-      selectedBackgroundColor: '#f3f3f3',
+      selectedBackgroundColor: '#e4e0dd',
       backgroundColor: '#fff',
       backgroundImage: 'images/bgs/default.png',
       color: '#000',
@@ -464,7 +493,9 @@ var DrupalCon = {
       itemType: session.type,
       height: 'auto',
       layout: 'vertical',
-      focusable : false
+      focusable : false,
+      className: 'scheduleitem',
+      id: 'schedule_item'+session.nid
     });
 
     var leftSpace = (Ti.Platform.name == 'android') ? 15 : 25;
@@ -482,11 +513,16 @@ var DrupalCon = {
     });
     
     if(specificRoom){
-    	sessionRow.hasChild = true;
+    	
+    	if(isAndroid()){
+				sessionRow.rightImage = 'images/rightArrow.png';
+			}else{
+				sessionRow.hasChild = true;
+			}
     	
 	    // Some things, like keynote, have multiple rooms
 	    var roomLabel = Ti.UI.createLabel({
-	      text: session.room.map(cleanSpecialChars).join(', '),
+	      text: fixLocation(session.room.map(cleanSpecialChars).join(', ')),
 	      font: {fontSize:13, fontWeight:'normal', fontStyle:'italic'},
 	      color: '#666',
 	      left: leftSpace,

@@ -16,7 +16,6 @@
  */
 
 (function() {
-
   // create tab group
   var tabGroup = Titanium.UI.createTabGroup({
     id:'tabGroup1'
@@ -79,7 +78,7 @@
     //dpm(e.index);
     if (e.index != 1 && e.index !=2){
       if (isAndroid()){
-        // Android has a menu
+      	// Android has a menu
         var buttons = [];
         buttons.push({
           title: "Update",

@@ -64,11 +64,12 @@
       left:0,
       top:-5,
       bottom:0,
-      layout:'vertical'
+      layout:'vertical',
+      className: 'presenterHeader'
     });
-    var twitterRow = Ti.UI.createTableViewRow({hasChild:true,height:41});
-    var linkedinRow = Ti.UI.createTableViewRow({hasChild:true,height:41});
-    var facebookRow = Ti.UI.createTableViewRow({hasChild:true,height:41});
+    var twitterRow = Ti.UI.createTableViewRow({rightImage: 'images/rightArrow.png',height:41});
+    var linkedinRow = Ti.UI.createTableViewRow({rightImage: 'images/rightArrow.png',height:41});
+    var facebookRow = Ti.UI.createTableViewRow({rightImage: 'images/rightArrow.png',height:41});
     var bioRow = Ti.UI.createTableViewRow({hasChild:false,height:'auto'});
 
     // Add the avatar image to the view
@@ -79,7 +80,7 @@
         text: cleanSpecialChars(presenterData.full_name),
         font: {fontSize: 20, fontWeight: 'bold'},
         textAlign: 'left',
-        color: '#000',
+        color: '#0060A9',
         height: 'auto',
         left: 120,
         top: -95,
@@ -92,17 +93,17 @@
       text: (presenterData.full_name !== presenterData.name) ? cleanSpecialChars(presenterData.name) : '',
       font: {fontSize: 14, fontWeight: 'bold'},
       textAlign: 'left',
-      color: '#04679C',
+      color: '#666',
       height: 'auto',
       left: 120,
-      top: (presenterData.full_name != undefined) ? 2 : -95
+      top: (presenterData.full_name != undefined) ? 1 : -95
     });
     headerRow.add(name);
 
     if (presenterData.organisation != undefined) {
       var organisation = Ti.UI.createLabel({
         text:presenterData.organisation,
-        font:{fontSize: 14, fontWeight: 'bold'},
+        font:{fontSize: 13, fontWeight: 'bold', fontStyle:'italic'},
         textAlign: 'left',
         color: '#999',
         height: 'auto',
@@ -181,12 +182,18 @@
     var sessionRow = [];
     for (var i in sessions) {
       sessionRow = Ti.UI.createTableViewRow({
-        hasChild:true,
         sessionTitle:cleanSpecialChars(sessions[i].title),
         nid:sessions[i].nid,
         height: 'auto',
-        backgroundColor: '#ef010f'
+        backgroundColor: '#ef010f',
+        className: 'sessionrow'
       });
+      
+      if(isAndroid()){
+				sessionRow.rightImage = 'images/rightArrow.png';
+			}else{
+				sessionRow.hasChild = true;
+			}
 
       var titleLabel = Ti.UI.createLabel({
         text: cleanSpecialChars(sessions[i].title),
